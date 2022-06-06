@@ -1,15 +1,15 @@
 package org.example.model;
 
-public class Card {
+public class CardModel {
     private String name;
     private String number;
     private String pin;
     private Integer balance;
 
-    public Card() {
+    public CardModel() {
     }
 
-    public Card(String name, String number, String pin, Integer balance) {
+    public CardModel(String name, String number, String pin, Integer balance) {
         this.name = name;
         this.number = number;
         this.pin = pin;

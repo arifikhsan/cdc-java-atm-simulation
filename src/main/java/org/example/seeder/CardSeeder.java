@@ -1,18 +1,18 @@
 package org.example.seeder;
 
-import org.example.model.Card;
+import org.example.model.CardModel;
 
 import java.util.List;
 
 public class CardSeeder {
-    public static List<Card> seed() {
-        var card1 = new Card();
+    public static List<CardModel> seed() {
+        var card1 = new CardModel();
         card1.setName("John Doe");
         card1.setNumber("112233");
         card1.setPin("112233");
         card1.setBalance(100);
 
-        var card2 = new Card();
+        var card2 = new CardModel();
         card2.setName("Jane Doe");
         card2.setNumber("112244");
         card2.setPin("112244");

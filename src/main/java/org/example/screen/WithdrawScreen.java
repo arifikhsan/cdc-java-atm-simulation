@@ -1,20 +1,24 @@
 package org.example.screen;
 
-import org.example.model.Card;
+import org.example.repository.CardRepository;
 
-import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 import static org.example.components.MessageComponent.*;
 
 public class WithdrawScreen {
-    private static final Scanner scanner = new Scanner(System.in);
+    private final CardRepository cardRepository;
+    private final Scanner scanner = new Scanner(System.in);
 
-    public static void showWithdrawScreen(Card currentCard, List<Card> cards) {
+    public WithdrawScreen(CardRepository cardRepository) {
+        this.cardRepository = cardRepository;
+    }
+
+    public void showWithdrawScreen() {
         while (true) {
             showWithdrawScreenMessage();
-            showBalanceMessage(currentCard);
+            showBalanceMessage();
             showOptionsMessage();
 
             var option = scanner.nextLine();
@@ -26,10 +30,10 @@ public class WithdrawScreen {
             }
 
             switch (parseInt(option)) {
-                case 1 -> withdraw(currentCard, 10);
-                case 2 -> withdraw(currentCard, 50);
-                case 3 -> withdraw(currentCard, 100);
-                case 4 -> withdraw(currentCard, 500);
+                case 1 -> withdraw(10);
+                case 2 -> withdraw(50);
+                case 3 -> withdraw(100);
+                case 4 -> withdraw(500);
                 case 5 -> {
                     return;
                 }
@@ -38,28 +42,28 @@ public class WithdrawScreen {
         }
     }
 
-    private static void withdraw(Card currentCard, Integer amount) {
-        if (!isBalanceEnough(currentCard, amount)) {
-            showErrorMessage("Not enough balance");
+    private void withdraw(Integer amount) {
+        if (!isBalanceEnough(amount)) {
+            showErrorMessage("Insufficient balance " + cardRepository.getLoggedInCard().getBalance());
             return;
         }
 
-        currentCard.setBalance(currentCard.getBalance() - amount);
+        cardRepository.getLoggedInCard().setBalance(cardRepository.getLoggedInCard().getBalance() - amount);
         showSuccessMessage("Withdraw success!");
-        showBalanceMessage(currentCard);
+        showBalanceMessage();
     }
 
-    private static Boolean isBalanceEnough(Card currentCard, Integer amount) {
-        return currentCard.getBalance() > amount;
+    private Boolean isBalanceEnough(Integer amount) {
+        return cardRepository.getLoggedInCard().getBalance() > amount;
     }
 
-    private static void showBalanceMessage(Card currentCard) {
+    private void showBalanceMessage() {
         printHorizontalLine();
-        println("Your balance: $ " + currentCard.getBalance());
+        println("Your balance: $ " + cardRepository.getLoggedInCard().getBalance());
         printHorizontalLine();
     }
 
-    private static void showOptionsMessage() {
+    private void showOptionsMessage() {
         printHorizontalLine();
         println("1. $10");
         println("2. $50");
@@ -70,11 +74,11 @@ public class WithdrawScreen {
         print("Select Transaction [5]: ");
     }
 
-    private static String defaultOption() {
+    private String defaultOption() {
         return "5";
     }
 
-    private static Boolean isInvalidInput(String input) {
+    private Boolean isInvalidInput(String input) {
         return !input.matches("[1-5]");
     }
 }

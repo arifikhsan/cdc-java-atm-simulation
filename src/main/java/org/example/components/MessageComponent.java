@@ -25,6 +25,12 @@ public class MessageComponent {
         println("======================================");
     }
 
+    public static void showWithdrawSummaryScreenMessage() {
+        println("======================================");
+        println("||         Withdraw Summary         ||");
+        println("======================================");
+    }
+
     public static void showTransferScreenMessage() {
         println("======================================");
         println("||  Transfer Money | Very Good ATM  ||");

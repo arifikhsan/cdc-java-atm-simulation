@@ -1,23 +1,24 @@
 package org.example.screen;
 
-import org.example.model.Card;
+import org.example.repository.CardRepository;
 
-import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 import static org.example.components.MessageComponent.*;
-import static org.example.components.MessageComponent.showInvalidOptionMessage;
-import static org.example.screen.TransferScreen.showTransferScreen;
-import static org.example.screen.WithdrawScreen.showWithdrawScreen;
 
 public class TransactionScreen {
+    private final CardRepository cardRepository;
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void showTransactionScreen(Card currentCard, List<Card> cards) {
+    public TransactionScreen(CardRepository cardRepository) {
+        this.cardRepository = cardRepository;
+    }
+
+    public void showTransactionScreen() {
         while (true) {
             showTransactionScreenMessage();
-            showUserInfo(currentCard);
+            showUserInfo();
             showOptionMessage();
 
             var option = scanner.nextLine();
@@ -31,11 +32,11 @@ public class TransactionScreen {
 
             switch (parseInt(option)) {
                 case 1: {
-                    gotoWithdrawScreen(currentCard, cards);
+                    gotoWithdrawScreen();
                     continue;
                 }
                 case 2: {
-                    gotoTransferScreen(currentCard, cards);
+                    gotoTransferScreen();
                     continue;
                 }
                 case 3: return;
@@ -50,23 +51,23 @@ public class TransactionScreen {
         }
     }
 
-    public static void gotoWithdrawScreen(Card currentCard, List<Card> cards) {
-        showWithdrawScreen(currentCard, cards);
+    private void gotoWithdrawScreen() {
+        new WithdrawScreen(cardRepository).showWithdrawScreen();
     }
 
-    public static void gotoTransferScreen(Card currentCard, List<Card> cards) {
-        showTransferScreen(currentCard, cards);
+    private void gotoTransferScreen() {
+//        showTransferScreen(currentCard, cards);
     }
 
-    public static void showUserInfo(Card currentCard) {
+    private void showUserInfo() {
         printHorizontalLine();
-        println("Name: " + currentCard.getName());
-        println("Account Number: " + currentCard.getNumber());
-        println("Balance: USD " + currentCard.getBalance());
+        println("Name: " + cardRepository.getLoggedInCard().getName());
+        println("Account Number: " + cardRepository.getLoggedInCard().getNumber());
+        println("Balance: USD " + cardRepository.getLoggedInCard().getBalance());
         printHorizontalLine();
     }
 
-    public static void showOptionMessage() {
+    private void showOptionMessage() {
         printHorizontalLine();
         println("1. Withdraw");
         println("2. Transfer");
@@ -77,11 +78,11 @@ public class TransactionScreen {
         print("Select transaction [5]: ");
     }
 
-    public static String defaultOption() {
+    private String defaultOption() {
         return "5";
     }
 
-    private static Boolean isInvalidInput(String input) {
+    private Boolean isInvalidInput(String input) {
         return !input.matches("[1-5]");
     }
 }

@@ -1,9 +1,13 @@
 package org.example;
 
-import static org.example.screen.WelcomeScreen.showWelcomeScreen;
+import org.example.repository.CardRepository;
+import org.example.screen.WelcomeScreen;
+import org.example.seeder.CardSeeder;
 
 public class Main {
     public static void main(String[] args) {
-        showWelcomeScreen();
+        var cardRepository = new CardRepository(CardSeeder.seed(), null);
+
+        new WelcomeScreen(cardRepository).showWelcomeScreen();
     }
 }
