@@ -13,16 +13,16 @@ public class WithdrawSummaryScreen {
         this.cardRepository = cardRepository;
     }
 
-    public void showWithdrawSummaryScreen(CardModel loggedInCard) {
-        while (true) {
+    public void showWithdrawSummaryScreen() {
+//        while (true) {
             showWithdrawSummaryScreenMessage();
-            showSummaryDetailMessage(loggedInCard);
-        }
+            showSummaryDetailMessage();
+//        }
     }
 
-    private void showSummaryDetailMessage(CardModel loggedInCard) {
-        println("Your balance is " + loggedInCard.getBalance());
-        println("Your card number is " + loggedInCard.getNumber());
-        println("Your PIN is " + loggedInCard.getPin());
+    private void showSummaryDetailMessage() {
+        println("Your balance is " + cardRepository.getLoggedInCard().getBalance());
+        println("Your card number is " + cardRepository.getLoggedInCard().getNumber());
+        println("Your PIN is " + cardRepository.getLoggedInCard().getPin());
     }
 }
