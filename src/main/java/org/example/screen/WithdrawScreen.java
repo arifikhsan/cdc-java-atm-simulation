@@ -54,19 +54,19 @@ public class WithdrawScreen {
     }
 
     private static void showBalanceMessage(Card currentCard) {
-        showFullScreenLine();
+        printHorizontalLine();
         println("Your balance: $ " + currentCard.getBalance());
-        showFullScreenLine();
+        printHorizontalLine();
     }
 
     private static void showOptionsMessage() {
-        showFullScreenLine();
+        printHorizontalLine();
         println("1. $10");
         println("2. $50");
         println("3. $100");
         println("4. Other");
         println("5. Back");
-        showFullScreenLine();
+        printHorizontalLine();
         print("Select Transaction [5]: ");
     }
 

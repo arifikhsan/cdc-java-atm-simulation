@@ -32,38 +32,42 @@ public class MessageComponent {
     }
 
     public static void showGoodBye() {
-        showFullScreenLine();
+        printHorizontalLine();
         println("||            Good Bye !!!          ||");
-        showFullScreenLine();
+        printHorizontalLine();
     }
 
     public static void showErrorMessage(String message) {
-        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-        System.out.println(message);
-        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        printErrorLine();
+        println(message);
+        printErrorLine();
     }
 
     public static void showSuccessMessage(String message) {
-        showFullScreenLine();
-        System.out.println(message);
-        showFullScreenLine();
+        printHorizontalLine();
+        println(message);
+        printHorizontalLine();
     }
 
-    public static void showFullScreenLine() {
-        System.out.println("======================================");
+    public static void printHorizontalLine() {
+        println("======================================");
+    }
+
+    public static void printErrorLine() {
+        println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
     }
 
     public static void showInvalidOptionMessage(String input) {
-        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-        System.out.println("Your input: " + input);
-        System.out.println("Is an invalid option. Please try again.");
-        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        printErrorLine();
+        println("Your input: " + input);
+        println("Is an invalid option. Please try again.");
+        printErrorLine();
     }
 
     public static void showInvalidOptionMessage() {
-        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-        System.out.println("Your input is invalid. Please try again.");
-        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        printErrorLine();
+        println("Your input is invalid. Please try again.");
+        printErrorLine();
     }
 
     public static void println(String string) {
@@ -76,6 +80,10 @@ public class MessageComponent {
 
     public static void exitApp() {
         showGoodBye();
+        exitConsoleApp();
+    }
+
+    public static void exitConsoleApp() {
         System.exit(0);
     }
 }

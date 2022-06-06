@@ -59,21 +59,21 @@ public class TransactionScreen {
     }
 
     public static void showUserInfo(Card currentCard) {
-        showFullScreenLine();
+        printHorizontalLine();
         println("Name: " + currentCard.getName());
         println("Account Number: " + currentCard.getNumber());
         println("Balance: USD " + currentCard.getBalance());
-        showFullScreenLine();
+        printHorizontalLine();
     }
 
     public static void showOptionMessage() {
-        showFullScreenLine();
+        printHorizontalLine();
         println("1. Withdraw");
         println("2. Transfer");
         println("3. Logout");
         println("4. Exit");
         println("5. Do nothing");
-        showFullScreenLine();
+        printHorizontalLine();
         print("Select transaction [5]: ");
     }
 
