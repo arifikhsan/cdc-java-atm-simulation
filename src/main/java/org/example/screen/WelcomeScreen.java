@@ -1,54 +1,71 @@
 package org.example.screen;
 
-import org.example.exception.NotFoundException;
-import org.example.model.Card;
-import org.example.seeder.CardSeeder;
-
-import java.io.IOException;
 import java.util.Scanner;
-import java.util.Set;
+
+import static java.lang.Integer.parseInt;
+import static org.example.components.MessageComponent.showGoodBye;
+import static org.example.components.MessageComponent.showWelcome;
 
 public class WelcomeScreen {
-    private final Set<Card> cards = CardSeeder.seed();
-    private final Scanner scanner = new Scanner(System.in);
-    private String cardNumber;
-    private String pin;
+    private static final Scanner scanner = new Scanner(System.in);
 
-    public Card show() throws IOException {
-        Card foundCard;
+    public static void showWelcomeScreen() {
+        //noinspection InfiniteLoopStatement
         while (true) {
-            System.out.println("======================================");
-            System.out.println("||           Very Good ATM          ||");
-            System.out.println("======================================");
+            showWelcome();
+            showOptions();
 
-            System.out.print("Enter your card number: ");
-            cardNumber = scanner.nextLine();
-            System.out.println("Your card number is " + cardNumber);
+            var option = scanner.nextLine();
 
-            System.out.print("Enter your PIN: ");
-            pin = scanner.nextLine();
-            System.out.println("Your PIN is " + pin);
+            if (option.isEmpty()) option = "3";
 
-            try {
-                foundCard = login(cardNumber, pin);
-                System.out.println("======================================");
-                System.out.println("Welcome, " + foundCard.getName());
-                System.out.println("======================================");
-                break;
-            } catch (NotFoundException e) {
-                System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-                System.out.println("Login failed. Try again");
-                System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+            if (isInvalidInput(option)) {
+                showInvalidOption(option);
+                continue;
+            }
+
+            switch (parseInt(option)) {
+                case 1: gotoLoginScreen();
+                case 2: exitApp();
+                case 3: continue;
+                default: showInvalidOption();
             }
         }
-
-        return foundCard;
     }
 
-    public Card login(String cardNumber, String pin) throws NotFoundException {
-        return cards.stream()
-                .filter(card -> card.getNumber().equals(cardNumber) && card.getPin().equals(pin))
-                .findFirst()
-                .orElseThrow(NotFoundException::new);
+    public static void gotoLoginScreen() {
+        new LoginScreen().show();
+    }
+
+    public static void exitApp() {
+        showGoodBye();
+        System.exit(0);
+    }
+
+    public static Boolean isInvalidInput(String input) {
+        return !input.matches("[1-3]"); // valid options are 1, 2, 3
+    }
+
+    public static void showInvalidOption(String input) {
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        System.out.println("Your input: " + input);
+        System.out.println("Is an invalid option. Please try again.");
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+    }
+
+    public static void showInvalidOption() {
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        System.out.println("Your input is invalid. Please try again.");
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+    }
+
+    public static void showOptions() {
+        System.out.println("======================================");
+        System.out.println("Choice:");
+        System.out.println("1. Login");
+        System.out.println("2. Exit");
+        System.out.println("3. Do nothing");
+        System.out.println("======================================");
+        System.out.print("Please enter your option [3]: ");
     }
 }
