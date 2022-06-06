@@ -4,21 +4,25 @@ import org.example.exception.NotFoundException;
 import org.example.model.Card;
 import org.example.seeder.CardSeeder;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
-import static org.example.components.MessageComponent.showWelcome;
+import static java.util.Collections.unmodifiableList;
+import static org.example.components.MessageComponent.*;
 
 public class LoginScreen {
-    private final Set<Card> cards = CardSeeder.seed();
-    private final Scanner scanner = new Scanner(System.in);
-    private String cardNumber;
-    private String pin;
+    private static final List<Card> cards = CardSeeder.seed();
+    private static final Scanner scanner = new Scanner(System.in);
 
-    public Card show() {
-        Card foundCard;
+    public static void showLoginScreen() {
+        String cardNumber;
+        String pin;
+        Card currentCard;
+
         while (true) {
-            showWelcome();
+            showLoginScreenMessage();
 
             System.out.print("Enter your card number: ");
             cardNumber = scanner.nextLine();
@@ -29,22 +33,21 @@ public class LoginScreen {
             System.out.println("Your PIN is " + pin);
 
             try {
-                foundCard = login(cardNumber, pin);
-                System.out.println("======================================");
-                System.out.println("Welcome, " + foundCard.getName());
-                System.out.println("======================================");
-                break;
+                currentCard = login(cardNumber, pin);
+                showSuccessMessage("Welcome, " + currentCard.getName());
+                gotoTransactionScreen(currentCard, cards);
+                return;
             } catch (NotFoundException e) {
-                System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-                System.out.println("Login failed. Try again");
-                System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+                showErrorMessage("Login failed. Please try again.");
             }
         }
-
-        return foundCard;
     }
 
-    public Card login(String cardNumber, String pin) throws NotFoundException {
+    public static void gotoTransactionScreen(Card currentCard, List<Card> cards) {
+        TransactionScreen.showTransactionScreen(currentCard, cards);
+    }
+
+    public static Card login(String cardNumber, String pin) throws NotFoundException {
         return cards.stream()
                 .filter(card -> card.getNumber().equals(cardNumber) && card.getPin().equals(pin))
                 .findFirst()

@@ -1,32 +1,9 @@
 package org.example;
 
-import org.example.model.Card;
-import org.example.screen.TransactionScreen;
-import org.example.screen.LoginScreen;
-import org.example.screen.WelcomeScreen;
-import org.example.seeder.CardSeeder;
-
-import java.io.IOException;
-import java.util.Set;
+import static org.example.screen.WelcomeScreen.showWelcomeScreen;
 
 public class Main {
-    private final Set<Card> cards = CardSeeder.seed();
-//    private static final LoginScreen LOGIN_SCREEN = new LoginScreen();
-    private static Card currentCard;
-
-    public static void main(String[] args) throws IOException {
-        WelcomeScreen.showWelcomeScreen();
-//        while (true) {
-//            currentCard = LOGIN_SCREEN.show();
-//            var transactionScreen = new TransactionScreen(currentCard);
-//            var state = transactionScreen.show();
-//
-//            if (state.equals("logout")) {
-//                System.out.println("Logout");
-//            } else if (state.equals("exit")) {
-//                System.out.println("Exit");
-//                break;
-//            }
-//        }
+    public static void main(String[] args) {
+        showWelcomeScreen();
     }
 }

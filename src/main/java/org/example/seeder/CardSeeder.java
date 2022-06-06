@@ -2,10 +2,10 @@ package org.example.seeder;
 
 import org.example.model.Card;
 
-import java.util.Set;
+import java.util.List;
 
 public class CardSeeder {
-    public static Set<Card> seed() {
+    public static List<Card> seed() {
         var card1 = new Card();
         card1.setName("John Doe");
         card1.setNumber("112233");
@@ -18,7 +18,7 @@ public class CardSeeder {
         card2.setPin("112244");
         card2.setBalance(30);
 
-        return Set.of(card1, card2);
+        return List.of(card1, card2);
     }
 }
 
