@@ -4,12 +4,9 @@ import org.example.exception.NotFoundException;
 import org.example.model.Card;
 import org.example.seeder.CardSeeder;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 
-import static java.util.Collections.unmodifiableList;
 import static org.example.components.MessageComponent.*;
 
 public class LoginScreen {
