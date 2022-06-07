@@ -1,5 +1,6 @@
 package org.example.screen;
 
+import org.example.screen.transfer.TransferInputAccountScreen;
 import org.example.screen.withdraw.WithdrawScreen;
 
 import static java.lang.Integer.parseInt;
@@ -8,7 +9,6 @@ import static org.example.Main.scanner;
 import static org.example.components.MessageComponent.*;
 
 public class TransactionScreen {
-    public static boolean backToHere = false;
 
     public void showTransactionScreen() {
         while (true) {
@@ -17,6 +17,7 @@ public class TransactionScreen {
             showOptionMessage();
 
             var option = scanner.nextLine();
+            println();
 
             if (option.isEmpty()) option = defaultOption();
 
@@ -33,7 +34,6 @@ public class TransactionScreen {
                 case 2: {
                     gotoTransferScreen();
                     continue;
-//                    break;
                 }
                 case 3: return;
                 case 4: exitApp();

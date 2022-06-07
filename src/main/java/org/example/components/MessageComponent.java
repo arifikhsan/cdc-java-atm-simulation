@@ -67,6 +67,12 @@ public class MessageComponent {
         println("======================================");
     }
 
+    public static void showTransferConfirmationScreenMessage() {
+        println("======================================");
+        println("||       Transfer Confirmation      ||");
+        println("======================================");
+    }
+
     public static void showGoodBye() {
         printHorizontalLine();
         println("||            Good Bye !!!          ||");

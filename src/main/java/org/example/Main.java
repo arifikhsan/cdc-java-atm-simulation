@@ -14,7 +14,7 @@ public class Main {
     public static final CardRepository cardRepository = new CardRepository(CardSeeder.seed(), null);
     public static WithdrawRepository withdrawRepository = new WithdrawRepository();
     public static final Scanner scanner = new Scanner(System.in);
-    public static TransferModel transferModel;
+    public static TransferModel transferModel = new TransferModel();
     public static final TransferRepository transferRepository = new TransferRepository();
     public static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a");
 

@@ -1,4 +1,4 @@
-package org.example.screen;
+package org.example.screen.transfer;
 
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.*;
@@ -40,6 +40,6 @@ public class TransferInputAccountScreen {
     }
 
     private boolean isValidInput(String destinationAccount) {
-        return !destinationAccount.matches("\\d+");
+        return destinationAccount.matches("\\d+");
     }
 }

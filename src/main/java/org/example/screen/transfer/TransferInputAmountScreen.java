@@ -1,8 +1,8 @@
-package org.example.screen;
+package org.example.screen.transfer;
 
 import static java.lang.Integer.parseInt;
 import static org.example.Main.*;
-import static org.example.util.NumberUtil.isNumber;
+import static org.example.util.NumberUtil.isAStringNumber;
 import static org.example.components.MessageComponent.*;
 
 public class TransferInputAmountScreen {
@@ -12,23 +12,25 @@ public class TransferInputAmountScreen {
             println("Please enter amount and press enter to continue or");
             println("Press enter to go back");
 
-            var amount = scanner.nextLine();
+            var amountString = scanner.nextLine();
 
-            if (amount.isEmpty()) {
+            if (amountString.isEmpty()) {
                 return;
             }
 
-            if (!isNumber(amount)) {
+            if (!isAStringNumber(amountString)) {
                 showErrorMessage("Invalid Amount");
                 continue;
             }
 
-            if (parseInt(amount) < 1) {
+            var amount = parseInt(amountString);
+
+            if (amount < 1) {
                 showErrorMessage("Minimum amount to transfer is $1");
                 continue;
             }
 
-            if (parseInt(amount) > 1000) {
+            if (amount > 1000) {
                 showErrorMessage("Maximum amount to transfer is $1000");
                 continue;
             }
@@ -39,12 +41,13 @@ public class TransferInputAmountScreen {
                 continue;
             }
 
-            transferModel.setAmount(parseInt(amount));
+            transferModel.setAmount(amount);
             new TransferInputReferenceScreen().show();
+            return;
         }
     }
 
-    private boolean isEnoughBalance(String amount) {
-        return cardRepository.getLoggedInCard().getBalance() >= parseInt(amount);
+    private boolean isEnoughBalance(Integer amount) {
+        return cardRepository.getLoggedInCard().getBalance() >= amount;
     }
 }
