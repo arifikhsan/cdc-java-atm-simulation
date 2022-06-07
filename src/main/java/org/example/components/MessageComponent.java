@@ -3,7 +3,7 @@ package org.example.components;
 public class MessageComponent {
     public static void showWelcomeMessage() {
         println("======================================");
-        println("||     Welcome to Very Good AT      ||");
+        println("||     Welcome to Very Good ATM     ||");
         println("======================================");
     }
 
@@ -37,9 +37,33 @@ public class MessageComponent {
         println("======================================");
     }
 
-    public static void showTransferScreenMessage() {
+    public static void showTransferInputAccountScreenMessage() {
         println("======================================");
         println("||  Transfer Money | Very Good ATM  ||");
+        println("======================================");
+        println("||       Input Account Number       ||");
+        println("======================================");
+    }
+
+    public static void showTransferInputAmountScreenMessage() {
+        println("======================================");
+        println("||  Transfer Money | Very Good ATM  ||");
+        println("======================================");
+        println("||            Input Amount          ||");
+        println("======================================");
+    }
+
+    public static void showTransferInputReferenceScreenMessage() {
+        println("======================================");
+        println("||  Transfer Money | Very Good ATM  ||");
+        println("======================================");
+        println("||      Input Reference Number      ||");
+        println("======================================");
+    }
+
+    public static void showTransferSummaryScreenMessage() {
+        println("======================================");
+        println("||      Fund Transfer Summary       ||");
         println("======================================");
     }
 
@@ -88,6 +112,10 @@ public class MessageComponent {
 
     public static void print(String string) {
         System.out.print(string);
+    }
+
+    public static void println() {
+        System.out.println();
     }
 
     public static void exitApp() {

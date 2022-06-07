@@ -1,17 +1,15 @@
-package org.example.screen;
+package org.example.screen.withdraw;
 
 import org.example.model.WithdrawModel;
 
 import java.time.LocalDateTime;
-import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 import static org.example.Main.cardRepository;
+import static org.example.Main.scanner;
 import static org.example.components.MessageComponent.*;
-import static org.example.components.MessageComponent.print;
 
 public class WithdrawCustomScreen {
-    private final Scanner scanner = new Scanner(System.in);
 
     public void showWithdrawCustomScreen() {
         while (true) {

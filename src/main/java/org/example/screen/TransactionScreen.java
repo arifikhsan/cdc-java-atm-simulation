@@ -1,19 +1,14 @@
 package org.example.screen;
 
-import org.example.repository.CardRepository;
-
-import java.util.Scanner;
+import org.example.screen.withdraw.WithdrawScreen;
 
 import static java.lang.Integer.parseInt;
+import static org.example.Main.cardRepository;
+import static org.example.Main.scanner;
 import static org.example.components.MessageComponent.*;
 
 public class TransactionScreen {
-    private final CardRepository cardRepository;
-    private static final Scanner scanner = new Scanner(System.in);
-
-    public TransactionScreen(CardRepository cardRepository) {
-        this.cardRepository = cardRepository;
-    }
+    public static boolean backToHere = false;
 
     public void showTransactionScreen() {
         while (true) {
@@ -38,6 +33,7 @@ public class TransactionScreen {
                 case 2: {
                     gotoTransferScreen();
                     continue;
+//                    break;
                 }
                 case 3: return;
                 case 4: exitApp();
@@ -52,11 +48,11 @@ public class TransactionScreen {
     }
 
     private void gotoWithdrawScreen() {
-        new WithdrawScreen(cardRepository).showWithdrawScreen();
+        new WithdrawScreen().showWithdrawScreen();
     }
 
     private void gotoTransferScreen() {
-//        showTransferScreen(currentCard, cards);
+        new TransferInputAccountScreen().showTransferScreen();
     }
 
     private void showUserInfo() {

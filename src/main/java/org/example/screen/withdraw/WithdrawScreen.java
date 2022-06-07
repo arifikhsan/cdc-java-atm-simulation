@@ -1,23 +1,15 @@
-package org.example.screen;
+package org.example.screen.withdraw;
 
 import org.example.model.WithdrawModel;
-import org.example.repository.CardRepository;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
+import static org.example.Main.cardRepository;
+import static org.example.Main.scanner;
 import static org.example.components.MessageComponent.*;
 
 public class WithdrawScreen {
-    private final CardRepository cardRepository;
-    private final Scanner scanner = new Scanner(System.in);
-
-    public WithdrawScreen(CardRepository cardRepository) {
-        this.cardRepository = cardRepository;
-    }
-
     public void showWithdrawScreen() {
         while (true) {
             showWithdrawScreenMessage();

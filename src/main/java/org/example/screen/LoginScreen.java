@@ -45,7 +45,7 @@ public class LoginScreen {
 
     public void gotoTransactionScreen(CardModel currentCard) {
         cardRepository.setLoggedInCard(currentCard);
-        new TransactionScreen(cardRepository).showTransactionScreen();
+        new TransactionScreen().showTransactionScreen();
     }
 
     public CardModel login(String cardNumber, String pin) throws NotFoundException {

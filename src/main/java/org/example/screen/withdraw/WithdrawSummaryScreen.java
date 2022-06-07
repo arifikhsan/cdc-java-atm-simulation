@@ -1,18 +1,15 @@
-package org.example.screen;
+package org.example.screen.withdraw;
 
 import org.example.model.WithdrawModel;
 
-import java.util.Scanner;
-
 import static java.lang.Integer.parseInt;
 import static java.time.format.DateTimeFormatter.ofPattern;
+import static org.example.Main.scanner;
 import static org.example.Main.withdrawRepository;
 import static org.example.components.MessageComponent.*;
 
 public class WithdrawSummaryScreen {
     private final WithdrawModel withdrawModel;
-    private final Scanner scanner = new Scanner(System.in);
-
 
     public WithdrawSummaryScreen(WithdrawModel withdrawModel) {
         this.withdrawModel = withdrawModel;

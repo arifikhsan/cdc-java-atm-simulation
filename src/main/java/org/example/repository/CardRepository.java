@@ -28,4 +28,15 @@ public class CardRepository {
     public void setLoggedInCard(CardModel loggedInCard) {
         this.loggedInCard = loggedInCard;
     }
+
+    public CardModel getCardByNumber(String cardNumber) {
+        return cards.stream()
+                .filter(card -> card.getNumber().equals(cardNumber))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public boolean existCardByNumber(String cardNumber) {
+        return cards.stream().anyMatch(card -> card.getNumber().equals(cardNumber));
+    }
 }
