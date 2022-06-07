@@ -6,7 +6,6 @@ import org.example.repository.CardRepository;
 import org.example.repository.TransferRepository;
 import org.example.repository.WithdrawRepository;
 import org.example.screen.WelcomeScreen;
-import org.example.seeder.CardSeeder;
 
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -22,6 +21,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        new WelcomeScreen().showWelcomeScreen();
+        new WelcomeScreen().show();
     }
 }

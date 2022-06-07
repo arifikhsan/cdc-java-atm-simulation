@@ -2,11 +2,13 @@ package org.example.screen.transfer;
 
 import java.time.LocalDateTime;
 
-import static java.lang.Integer.parseInt;
-import static org.example.Main.*;
-import static org.example.components.MessageComponent.*;
+import static org.example.Main.scanner;
+import static org.example.Main.transferModel;
+import static org.example.components.MessageComponent.showErrorMessage;
+import static org.example.components.MessageComponent.showTransferInputReferenceScreenMessage;
 import static org.example.util.NumberUtil.generateRandomSixDigitNumber;
 import static org.example.util.NumberUtil.isAStringNumber;
+import static org.example.util.SystemUtil.println;
 
 public class TransferInputReferenceScreen {
     public void show() {
@@ -18,7 +20,7 @@ public class TransferInputReferenceScreen {
             println(referenceNumber.toString());
             println("Press enter to continue");
 
-            var reference = scanner.nextLine();
+            scanner.nextLine();
 
             if (referenceNumber.toString().isEmpty()) {
                 showErrorMessage("Invalid Reference Number");

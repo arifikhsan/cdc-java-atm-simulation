@@ -5,13 +5,13 @@ import static org.example.Main.scanner;
 import static org.example.components.MessageComponent.*;
 import static org.example.util.NumberUtil.isAStringNumber;
 import static org.example.util.NumberUtil.isPositive;
+import static org.example.util.SystemUtil.*;
 
 public class WelcomeScreen {
-
-    public void showWelcomeScreen() {
+    public void show() {
         //noinspection InfiniteLoopStatement
         while (true) {
-            showWelcomeMessage();
+            printWelcomeMessage();
             showOptionsMessage();
 
             var option = scanner.nextLine();
@@ -31,14 +31,16 @@ public class WelcomeScreen {
                 case 2: {
                     exitApp();
                 }
-                case 3: continue;
-                default: showInvalidOptionMessage(option);
+                case 3:
+                    continue;
+                default:
+                    showInvalidOptionMessage(option);
             }
         }
     }
 
     private void gotoLoginScreen() {
-        new LoginScreen().showLoginScreen();
+        new LoginScreen().show();
     }
 
     private Boolean isValidInput(String input) {

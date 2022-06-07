@@ -5,19 +5,19 @@ import org.example.model.WithdrawModel;
 import java.time.LocalDateTime;
 
 import static java.lang.Integer.parseInt;
-import static org.example.Main.loggedInCard;
-import static org.example.Main.scanner;
+import static org.example.Main.*;
 import static org.example.components.MessageComponent.*;
+import static org.example.util.SystemUtil.*;
 
 public class WithdrawScreen {
-    public void showWithdrawScreen() {
+    public void show() {
         while (true) {
-            showWithdrawScreenMessage();
+            printWithdrawScreenMessage();
             showBalanceMessage();
             showOptionsMessage();
 
             var option = scanner.nextLine();
-            if (option.isEmpty()) option = defaultOption();
+            if (option.isEmpty()) option = "5";
 
             if (isInvalidInput(option)) {
                 showInvalidOptionMessage(option);
@@ -38,24 +38,30 @@ public class WithdrawScreen {
     }
 
     private void gotoWithdrawCustomScreen() {
-        new WithdrawCustomScreen().showWithdrawCustomScreen();
+        new WithdrawCustomScreen().show();
     }
 
     private void gotoWithdrawSummaryScreen(WithdrawModel withdrawModel) {
-        new WithdrawSummaryScreen(withdrawModel).showWithdrawSummaryScreen();
+        new WithdrawSummaryScreen().show(withdrawModel);
     }
 
     private void withdraw(Integer amount) {
         if (!isBalanceEnough(amount)) {
-            showErrorMessage("Insufficient balance $ " + loggedInCard.getBalance());
+            showErrorMessage("Insufficient withdraw balance $" + amount + ". Current balance is $" + loggedInCard.getBalance());
             return;
         }
 
-        loggedInCard.setBalance(loggedInCard.getBalance() - amount);
-        var withdrawModel = new WithdrawModel(LocalDateTime.now(), amount, loggedInCard.getBalance(), loggedInCard);
-        println("");
+        var withdrawModel = saveWithdrawData(amount);
+        printNewLine();
         showSuccessMessage("Withdraw success!");
         gotoWithdrawSummaryScreen(withdrawModel);
+    }
+
+    private WithdrawModel saveWithdrawData(Integer amount) {
+        loggedInCard.setBalance(loggedInCard.getBalance() - amount);
+        var withdrawModel = new WithdrawModel(LocalDateTime.now(), amount, loggedInCard.getBalance(), loggedInCard);
+        withdrawRepository.getWithdraws().add(withdrawModel);
+        return withdrawModel;
     }
 
     private Boolean isBalanceEnough(Integer amount) {
@@ -77,10 +83,6 @@ public class WithdrawScreen {
         println("5. Back");
         printHorizontalLine();
         print("Select Transaction [5]: ");
-    }
-
-    private String defaultOption() {
-        return "5";
     }
 
     private Boolean isInvalidInput(String input) {

@@ -2,11 +2,13 @@ package org.example.screen.transfer;
 
 import static java.lang.Integer.parseInt;
 import static org.example.Main.*;
-import static org.example.util.NumberUtil.isAStringNumber;
-import static org.example.components.MessageComponent.*;
+import static org.example.components.MessageComponent.showErrorMessage;
+import static org.example.components.MessageComponent.showTransferInputAmountScreenMessage;
+import static org.example.util.NumberUtil.*;
+import static org.example.util.SystemUtil.println;
 
 public class TransferInputAmountScreen {
-    public void showTransferInputAmountScreen() {
+    public void show() {
         while (true) {
             showTransferInputAmountScreenMessage();
             println("Please enter amount and press enter to continue or");
@@ -25,12 +27,12 @@ public class TransferInputAmountScreen {
 
             var amount = parseInt(amountString);
 
-            if (amount < 1) {
+            if (isNegative(amount)) {
                 showErrorMessage("Minimum amount to transfer is $1");
                 continue;
             }
 
-            if (amount > 1000) {
+            if (isGreaterThan1000(amount)) {
                 showErrorMessage("Maximum amount to transfer is $1000");
                 continue;
             }

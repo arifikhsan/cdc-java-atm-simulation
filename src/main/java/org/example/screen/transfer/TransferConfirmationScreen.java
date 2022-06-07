@@ -2,9 +2,11 @@ package org.example.screen.transfer;
 
 import static java.lang.Integer.parseInt;
 import static org.example.Main.*;
-import static org.example.components.MessageComponent.*;
+import static org.example.components.MessageComponent.printHorizontalLine;
+import static org.example.components.MessageComponent.showTransferConfirmationScreenMessage;
 import static org.example.util.NumberUtil.isAStringNumber;
 import static org.example.util.NumberUtil.isPositive;
+import static org.example.util.SystemUtil.*;
 
 public class TransferConfirmationScreen {
     public void show() {
@@ -14,7 +16,7 @@ public class TransferConfirmationScreen {
             showOptionMessage();
 
             var option = scanner.nextLine();
-            println();
+            printNewLine();
 
             if (option.isEmpty()) option = "2";
 

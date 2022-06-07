@@ -4,15 +4,17 @@ import static org.example.Main.*;
 import static org.example.components.MessageComponent.*;
 import static org.example.util.NumberUtil.isAStringNumber;
 import static org.example.util.StringUtil.isExact6Digits;
+import static org.example.util.SystemUtil.print;
+import static org.example.util.SystemUtil.println;
 
 public class LoginScreen {
 
-    public void showLoginScreen() {
+    public void show() {
         String cardNumber;
         String pin;
 
         while (true) {
-            showLoginScreenMessage();
+            printLoginScreenMessage();
 
             print("Enter your card number: ");
             cardNumber = scanner.nextLine();
@@ -67,6 +69,6 @@ public class LoginScreen {
     }
 
     public void gotoTransactionScreen() {
-        new TransactionScreen().showTransactionScreen();
+        new TransactionScreen().show();
     }
 }

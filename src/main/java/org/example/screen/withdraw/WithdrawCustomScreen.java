@@ -7,24 +7,27 @@ import java.time.LocalDateTime;
 import static java.lang.Integer.parseInt;
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.*;
+import static org.example.util.NumberUtil.*;
+import static org.example.util.SystemUtil.print;
+import static org.example.util.SystemUtil.printNewLine;
 
 public class WithdrawCustomScreen {
 
-    public void showWithdrawCustomScreen() {
+    public void show() {
         while (true) {
-            showWithdrawCustomScreenMessage();
+            printWithdrawCustomScreenMessage();
             print("Enter amount to withdraw: ");
 
             var amount = scanner.nextLine();
 
-            if (isInvalidAmount(amount)) {
+            if (!isValidAmount(amount)) {
                 showErrorMessage("Invalid amount");
                 continue;
             }
 
             var withdrawAmount = parseInt(amount);
 
-            if (greaterThan1000(withdrawAmount)) {
+            if (isGreaterThan1000(withdrawAmount)) {
                 showErrorMessage("Maximum amount to withdraw is $1000");
                 continue;
             }
@@ -34,7 +37,7 @@ public class WithdrawCustomScreen {
                 continue;
             }
 
-            if (multipleOf10(withdrawAmount)) {
+            if (!isMultiplyOf10(withdrawAmount)) {
                 showErrorMessage("Amount must be multiple of 10");
                 continue;
             }
@@ -44,33 +47,25 @@ public class WithdrawCustomScreen {
         }
     }
 
-    private void withdraw(int withdrawAmount) {
-        loggedInCard.setBalance(loggedInCard.getBalance() - withdrawAmount);
-        var withdrawModel = new WithdrawModel(LocalDateTime.now(), withdrawAmount, loggedInCard.getBalance(), loggedInCard);
-        println("");
+    private void withdraw(int amount) {
+        loggedInCard.setBalance(loggedInCard.getBalance() - amount);
+        var withdrawModel = new WithdrawModel(LocalDateTime.now(), amount, loggedInCard.getBalance(), loggedInCard);
+        withdrawRepository.getWithdraws().add(withdrawModel);
+        printNewLine();
         showSuccessMessage("Withdraw success!");
         gotoWithdrawSummaryScreen(withdrawModel);
     }
 
     private void gotoWithdrawSummaryScreen(WithdrawModel withdrawModel) {
-        new WithdrawSummaryScreen(withdrawModel).showWithdrawSummaryScreen();
-    }
-
-    private boolean multipleOf10(int withdrawAmount) {
-        return withdrawAmount % 10 != 0;
+        new WithdrawSummaryScreen().show(withdrawModel);
     }
 
     private boolean isBalanceEnough(int withdrawAmount) {
         return loggedInCard.getBalance() >= withdrawAmount;
     }
 
-    private boolean greaterThan1000(int withdrawAmount) {
-        return withdrawAmount > 1000;
-    }
-
-    private boolean isInvalidAmount(String amount) {
-        if (amount.isEmpty()) return true;
-        return !amount.matches("\\d+"); // if not a number
+    private boolean isValidAmount(String amount) {
+        return !amount.isEmpty() && isAStringNumber(amount) && isPositive(parseInt(amount));
     }
 
 }

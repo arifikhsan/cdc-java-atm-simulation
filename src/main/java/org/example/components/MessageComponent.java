@@ -1,31 +1,33 @@
 package org.example.components;
 
+import static org.example.util.SystemUtil.println;
+
 public class MessageComponent {
-    public static void showWelcomeMessage() {
+    public static void printWelcomeMessage() {
         println("======================================");
         println("||     Welcome to Very Good ATM     ||");
         println("======================================");
     }
 
-    public static void showLoginScreenMessage() {
+    public static void printLoginScreenMessage() {
         println("======================================");
         println("||       Login | Very Good ATM      ||");
         println("======================================");
     }
 
-    public static void showTransactionScreenMessage() {
+    public static void printTransactionScreenMessage() {
         println("======================================");
         println("||   Transaction | Very Good ATM    ||");
         println("======================================");
     }
 
-    public static void showWithdrawScreenMessage() {
+    public static void printWithdrawScreenMessage() {
         println("======================================");
         println("||  Withdraw Money | Very Good ATM  ||");
         println("======================================");
     }
 
-    public static void showWithdrawCustomScreenMessage() {
+    public static void printWithdrawCustomScreenMessage() {
         println("======================================");
         println("||  Other Withdraw | Very Good ATM  ||");
         println("======================================");
@@ -33,7 +35,7 @@ public class MessageComponent {
 
     public static void showWithdrawSummaryScreenMessage() {
         println("======================================");
-        println("||         Withdraw Summary         ||");
+        println("|| Withdraw Summary | Very Good ATM ||");
         println("======================================");
     }
 
@@ -63,20 +65,24 @@ public class MessageComponent {
 
     public static void showTransferSummaryScreenMessage() {
         println("======================================");
+        println("||          Very Good ATM           ||");
+        println("======================================");
         println("||      Fund Transfer Summary       ||");
         println("======================================");
     }
 
     public static void showTransferConfirmationScreenMessage() {
         println("======================================");
+        println("||          Very Good ATM           ||");
+        println("======================================");
         println("||       Transfer Confirmation      ||");
         println("======================================");
     }
 
-    public static void showGoodBye() {
-        printHorizontalLine();
+    public static void showGoodByeMessage() {
+        println("======================================");
         println("||            Good Bye !!!          ||");
-        printHorizontalLine();
+        println("======================================");
     }
 
     public static void showErrorMessage(String message) {
@@ -106,30 +112,9 @@ public class MessageComponent {
         printErrorLine();
     }
 
-    public static void showInvalidOptionMessage() {
+    public static void showInvalidInputMessage() {
         printErrorLine();
         println("Your input is invalid. Please try again.");
         printErrorLine();
-    }
-
-    public static void println(String string) {
-        System.out.println(string);
-    }
-
-    public static void print(String string) {
-        System.out.print(string);
-    }
-
-    public static void println() {
-        System.out.println();
-    }
-
-    public static void exitApp() {
-        showGoodBye();
-        exitConsoleApp();
-    }
-
-    public static void exitConsoleApp() {
-        System.exit(0);
     }
 }

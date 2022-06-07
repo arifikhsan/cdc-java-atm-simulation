@@ -1,11 +1,13 @@
 package org.example.screen.transfer;
 
 import static org.example.Main.*;
-import static org.example.components.MessageComponent.*;
+import static org.example.components.MessageComponent.showErrorMessage;
+import static org.example.components.MessageComponent.showTransferInputAccountScreenMessage;
+import static org.example.util.StringUtil.isValidAccountNumber;
+import static org.example.util.SystemUtil.println;
 
 public class TransferInputAccountScreen {
-
-    public void showTransferScreen() {
+    public void show() {
         while (true) {
             showTransferInputAccountScreenMessage();
             println("Please enter destination account and press enter to continue or");
@@ -17,7 +19,7 @@ public class TransferInputAccountScreen {
                 return;
             }
 
-            if (!isValidInput(destinationAccountNumber)) {
+            if (!isValidAccountNumber(destinationAccountNumber)) {
                 showErrorMessage("Invalid Account");
                 continue;
             }
@@ -30,16 +32,12 @@ public class TransferInputAccountScreen {
             var destinationAccount = cardRepository.getCardByNumber(destinationAccountNumber);
             transferModel.setFromCard(loggedInCard);
             transferModel.setToCard(destinationAccount);
-            new TransferInputAmountScreen().showTransferInputAmountScreen();
+            new TransferInputAmountScreen().show();
             return;
         }
     }
 
     private boolean isAccountExist(String destinationAccount) {
         return cardRepository.isExistByNumber(destinationAccount);
-    }
-
-    private boolean isValidInput(String destinationAccount) {
-        return destinationAccount.matches("\\d+");
     }
 }

@@ -3,27 +3,20 @@ package org.example.screen.withdraw;
 import org.example.model.WithdrawModel;
 
 import static java.lang.Integer.parseInt;
-import static java.time.format.DateTimeFormatter.ofPattern;
+import static org.example.Main.dateTimeFormatter;
 import static org.example.Main.scanner;
-import static org.example.Main.withdrawRepository;
 import static org.example.components.MessageComponent.*;
+import static org.example.util.SystemUtil.*;
 
 public class WithdrawSummaryScreen {
-    private final WithdrawModel withdrawModel;
-
-    public WithdrawSummaryScreen(WithdrawModel withdrawModel) {
-        this.withdrawModel = withdrawModel;
-        withdrawRepository.getWithdraws().add(withdrawModel);
-    }
-
-    public void showWithdrawSummaryScreen() {
+    public void show(WithdrawModel withdrawModel) {
         while (true) {
             showWithdrawSummaryScreenMessage();
-            showSummaryDetailMessage();
+            showSummaryDetailMessage(withdrawModel);
             showOptionsMessage();
 
             var option = scanner.nextLine();
-            if (option.isEmpty()) option = defaultOption();
+            if (option.isEmpty()) option = "2";
 
             if (isInvalidInput(option)) {
                 showInvalidOptionMessage(option);
@@ -41,9 +34,9 @@ public class WithdrawSummaryScreen {
         }
     }
 
-    private void showSummaryDetailMessage() {
+    private void showSummaryDetailMessage(WithdrawModel withdrawModel) {
         println("Summary");
-        println("Date: " + withdrawModel.getDatetime().format(ofPattern("yyyy-MM-dd HH:mm a")));
+        println("Date: " + withdrawModel .getDatetime().format(dateTimeFormatter));
         println("Withdraw amount: $ " + withdrawModel.getAmount());
         println("Current Balance: $ " + withdrawModel.getCard().getBalance());
     }
@@ -54,10 +47,6 @@ public class WithdrawSummaryScreen {
         println("2. Exit");
         printHorizontalLine();
         print("Select Transaction [2]: ");
-    }
-
-    private String defaultOption() {
-        return "2";
     }
 
     private Boolean isInvalidInput(String input) {
