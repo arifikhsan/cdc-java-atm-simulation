@@ -1,28 +1,74 @@
 package org.example.screen;
 
+import org.example.Main;
 import org.example.model.CardModel;
+import org.example.model.WithdrawModel;
 import org.example.repository.CardRepository;
+import org.example.repository.WithdrawRepository;
 
-import static org.example.components.MessageComponent.println;
-import static org.example.components.MessageComponent.showWithdrawSummaryScreenMessage;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+import static java.lang.Integer.parseInt;
+import static java.time.format.DateTimeFormatter.ofPattern;
+import static org.example.Main.withdrawRepository;
+import static org.example.components.MessageComponent.*;
 
 public class WithdrawSummaryScreen {
-    private final CardRepository cardRepository;
+    private final WithdrawModel withdrawModel;
+    private final Scanner scanner = new Scanner(System.in);
 
-    public WithdrawSummaryScreen(CardRepository cardRepository) {
-        this.cardRepository = cardRepository;
+
+    public WithdrawSummaryScreen(WithdrawModel withdrawModel) {
+        this.withdrawModel = withdrawModel;
+        withdrawRepository.getWithdraws().add(withdrawModel);
     }
 
     public void showWithdrawSummaryScreen() {
-//        while (true) {
+        while (true) {
             showWithdrawSummaryScreenMessage();
             showSummaryDetailMessage();
-//        }
+            showOptionsMessage();
+
+            var option = scanner.nextLine();
+            if (option.isEmpty()) option = defaultOption();
+
+            if (isInvalidInput(option)) {
+                showInvalidOptionMessage(option);
+                continue;
+            }
+
+            switch (parseInt(option)) {
+                case 1 -> {
+                    return;
+                }
+                // how to go back to welcome page?
+                case 2 -> exitApp();
+                default -> showInvalidOptionMessage(option);
+            }
+        }
     }
 
     private void showSummaryDetailMessage() {
-        println("Your balance is " + cardRepository.getLoggedInCard().getBalance());
-        println("Your card number is " + cardRepository.getLoggedInCard().getNumber());
-        println("Your PIN is " + cardRepository.getLoggedInCard().getPin());
+        println("Summary");
+        println("Date: " + withdrawModel.getDatetime().format(ofPattern("yyyy-MM-dd HH:mm a")));
+        println("Withdraw amount: $ " + withdrawModel.getAmount());
+        println("Current Balance: $ " + withdrawModel.getCard().getBalance());
+    }
+
+    private void showOptionsMessage() {
+        printHorizontalLine();
+        println("1. Back");
+        println("2. Exit");
+        printHorizontalLine();
+        print("Select Transaction [2]: ");
+    }
+
+    private String defaultOption() {
+        return "2";
+    }
+
+    private Boolean isInvalidInput(String input) {
+        return !input.matches("[1-2]");
     }
 }

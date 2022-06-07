@@ -1,7 +1,10 @@
 package org.example.screen;
 
+import org.example.model.WithdrawModel;
 import org.example.repository.CardRepository;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
@@ -42,19 +45,26 @@ public class WithdrawScreen {
         }
     }
 
+    private void gotoWithdrawSummaryScreen(WithdrawModel withdrawModel) {
+        new WithdrawSummaryScreen(withdrawModel).showWithdrawSummaryScreen();
+    }
+
     private void withdraw(Integer amount) {
         if (!isBalanceEnough(amount)) {
-            showErrorMessage("Insufficient balance " + cardRepository.getLoggedInCard().getBalance());
+            showErrorMessage("Insufficient balance $ " + cardRepository.getLoggedInCard().getBalance());
             return;
         }
 
         cardRepository.getLoggedInCard().setBalance(cardRepository.getLoggedInCard().getBalance() - amount);
+        var withdrawModel = new WithdrawModel(LocalDateTime.now(), amount, cardRepository.getLoggedInCard().getBalance(), cardRepository.getLoggedInCard());
+        println("");
         showSuccessMessage("Withdraw success!");
-        showBalanceMessage();
+        gotoWithdrawSummaryScreen(withdrawModel);
+//        showBalanceMessage();
     }
 
     private Boolean isBalanceEnough(Integer amount) {
-        return cardRepository.getLoggedInCard().getBalance() > amount;
+        return cardRepository.getLoggedInCard().getBalance() >= amount;
     }
 
     private void showBalanceMessage() {

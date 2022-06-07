@@ -1,15 +1,16 @@
 package org.example.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class WithdrawModel {
-    private LocalDate date;
+    private LocalDateTime datetime;
     private Integer amount;
     private Integer balance;
     private CardModel card;
 
-    public WithdrawModel(LocalDate date, Integer amount, Integer balance, CardModel card) {
-        this.date = date;
+    public WithdrawModel(LocalDateTime datetime, Integer amount, Integer balance, CardModel card) {
+        this.datetime = datetime;
         this.amount = amount;
         this.balance = balance;
         this.card = card;
@@ -18,12 +19,12 @@ public class WithdrawModel {
     public WithdrawModel() {
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDateTime getDatetime() {
+        return datetime;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDatetime(LocalDateTime datetime) {
+        this.datetime = datetime;
     }
 
     public Integer getAmount() {
