@@ -1,12 +1,7 @@
 package org.example.screen;
 
-import org.example.Main;
-import org.example.model.CardModel;
 import org.example.model.WithdrawModel;
-import org.example.repository.CardRepository;
-import org.example.repository.WithdrawRepository;
 
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;

@@ -36,13 +36,17 @@ public class WithdrawScreen {
                 case 1 -> withdraw(10);
                 case 2 -> withdraw(50);
                 case 3 -> withdraw(100);
-                case 4 -> withdraw(500);
+                case 4 -> gotoWithdrawCustomScreen();
                 case 5 -> {
                     return;
                 }
                 default -> showInvalidOptionMessage(option);
             }
         }
+    }
+
+    private void gotoWithdrawCustomScreen() {
+        new WithdrawCustomScreen().showWithdrawCustomScreen();
     }
 
     private void gotoWithdrawSummaryScreen(WithdrawModel withdrawModel) {
@@ -60,7 +64,6 @@ public class WithdrawScreen {
         println("");
         showSuccessMessage("Withdraw success!");
         gotoWithdrawSummaryScreen(withdrawModel);
-//        showBalanceMessage();
     }
 
     private Boolean isBalanceEnough(Integer amount) {

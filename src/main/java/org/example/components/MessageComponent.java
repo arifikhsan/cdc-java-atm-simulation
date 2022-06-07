@@ -25,6 +25,12 @@ public class MessageComponent {
         println("======================================");
     }
 
+    public static void showWithdrawCustomScreenMessage() {
+        println("======================================");
+        println("||  Other Withdraw | Very Good ATM  ||");
+        println("======================================");
+    }
+
     public static void showWithdrawSummaryScreenMessage() {
         println("======================================");
         println("||         Withdraw Summary         ||");
