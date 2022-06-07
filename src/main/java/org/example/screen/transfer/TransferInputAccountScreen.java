@@ -28,7 +28,7 @@ public class TransferInputAccountScreen {
             }
 
             var destinationAccount = cardRepository.getCardByNumber(destinationAccountNumber);
-            transferModel.setFromCard(cardRepository.getLoggedInCard());
+            transferModel.setFromCard(loggedInCard);
             transferModel.setToCard(destinationAccount);
             new TransferInputAmountScreen().showTransferInputAmountScreen();
             return;
@@ -36,7 +36,7 @@ public class TransferInputAccountScreen {
     }
 
     private boolean isAccountExist(String destinationAccount) {
-        return cardRepository.existCardByNumber(destinationAccount);
+        return cardRepository.isExistByNumber(destinationAccount);
     }
 
     private boolean isValidInput(String destinationAccount) {

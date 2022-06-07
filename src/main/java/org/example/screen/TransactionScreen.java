@@ -4,8 +4,8 @@ import org.example.screen.transfer.TransferInputAccountScreen;
 import org.example.screen.withdraw.WithdrawScreen;
 
 import static java.lang.Integer.parseInt;
-import static org.example.Main.cardRepository;
-import static org.example.Main.scanner;
+import static org.example.Main.*;
+import static org.example.Main.loggedInCard;
 import static org.example.components.MessageComponent.*;
 
 public class TransactionScreen {
@@ -35,7 +35,10 @@ public class TransactionScreen {
                     gotoTransferScreen();
                     continue;
                 }
-                case 3: return;
+                case 3: {
+                    loggedInCard = null;
+                    return;
+                }
                 case 4: exitApp();
                 case 5: {
                     continue;
@@ -57,9 +60,9 @@ public class TransactionScreen {
 
     private void showUserInfo() {
         printHorizontalLine();
-        println("Name: " + cardRepository.getLoggedInCard().getName());
-        println("Account Number: " + cardRepository.getLoggedInCard().getNumber());
-        println("Balance: USD " + cardRepository.getLoggedInCard().getBalance());
+        println("Name: " + loggedInCard.getName());
+        println("Account Number: " + loggedInCard.getNumber());
+        println("Balance: $" + loggedInCard.getBalance());
         printHorizontalLine();
     }
 

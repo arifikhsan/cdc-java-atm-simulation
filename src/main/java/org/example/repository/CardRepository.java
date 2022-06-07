@@ -1,17 +1,12 @@
 package org.example.repository;
 
 import org.example.model.CardModel;
+import org.example.seeder.CardSeeder;
 
 import java.util.List;
 
 public class CardRepository {
-    private List<CardModel> cards;
-    private CardModel loggedInCard;
-
-    public CardRepository(List<CardModel> cards, CardModel loggedInCard) {
-        this.cards = cards;
-        this.loggedInCard = loggedInCard;
-    }
+    private List<CardModel> cards = CardSeeder.seed();
 
     public List<CardModel> getCards() {
         return cards;
@@ -21,14 +16,6 @@ public class CardRepository {
         this.cards = cards;
     }
 
-    public CardModel getLoggedInCard() {
-        return loggedInCard;
-    }
-
-    public void setLoggedInCard(CardModel loggedInCard) {
-        this.loggedInCard = loggedInCard;
-    }
-
     public CardModel getCardByNumber(String cardNumber) {
         return cards.stream()
                 .filter(card -> card.getNumber().equals(cardNumber))
@@ -36,7 +23,11 @@ public class CardRepository {
                 .orElse(null);
     }
 
-    public boolean existCardByNumber(String cardNumber) {
+    public boolean isExistByNumber(String cardNumber) {
         return cards.stream().anyMatch(card -> card.getNumber().equals(cardNumber));
+    }
+
+    public boolean isExistByNumberAndPin(String cardNumber, String pin) {
+        return cards.stream().anyMatch(card -> card.getNumber().equals(cardNumber) && card.getPin().equals(pin));
     }
 }

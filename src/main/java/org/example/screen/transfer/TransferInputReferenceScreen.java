@@ -36,8 +36,4 @@ public class TransferInputReferenceScreen {
             return;
         }
     }
-
-    private boolean isEnoughBalance(String reference) {
-        return cardRepository.getLoggedInCard().getBalance() >= parseInt(reference);
-    }
 }

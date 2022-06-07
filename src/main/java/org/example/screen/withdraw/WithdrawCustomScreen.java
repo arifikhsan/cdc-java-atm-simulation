@@ -5,8 +5,7 @@ import org.example.model.WithdrawModel;
 import java.time.LocalDateTime;
 
 import static java.lang.Integer.parseInt;
-import static org.example.Main.cardRepository;
-import static org.example.Main.scanner;
+import static org.example.Main.*;
 import static org.example.components.MessageComponent.*;
 
 public class WithdrawCustomScreen {
@@ -31,7 +30,7 @@ public class WithdrawCustomScreen {
             }
 
             if (!isBalanceEnough(withdrawAmount)) {
-                showErrorMessage("Insufficient balance $" + withdrawAmount + ". Current balance is $" + cardRepository.getLoggedInCard().getBalance());
+                showErrorMessage("Insufficient balance $" + withdrawAmount + ". Current balance is $" + loggedInCard.getBalance());
                 continue;
             }
 
@@ -46,8 +45,8 @@ public class WithdrawCustomScreen {
     }
 
     private void withdraw(int withdrawAmount) {
-        cardRepository.getLoggedInCard().setBalance(cardRepository.getLoggedInCard().getBalance() - withdrawAmount);
-        var withdrawModel = new WithdrawModel(LocalDateTime.now(), withdrawAmount, cardRepository.getLoggedInCard().getBalance(), cardRepository.getLoggedInCard());
+        loggedInCard.setBalance(loggedInCard.getBalance() - withdrawAmount);
+        var withdrawModel = new WithdrawModel(LocalDateTime.now(), withdrawAmount, loggedInCard.getBalance(), loggedInCard);
         println("");
         showSuccessMessage("Withdraw success!");
         gotoWithdrawSummaryScreen(withdrawModel);
@@ -62,7 +61,7 @@ public class WithdrawCustomScreen {
     }
 
     private boolean isBalanceEnough(int withdrawAmount) {
-        return cardRepository.getLoggedInCard().getBalance() >= withdrawAmount;
+        return loggedInCard.getBalance() >= withdrawAmount;
     }
 
     private boolean greaterThan1000(int withdrawAmount) {

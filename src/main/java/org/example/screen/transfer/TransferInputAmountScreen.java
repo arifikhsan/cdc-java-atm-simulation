@@ -37,7 +37,7 @@ public class TransferInputAmountScreen {
 
             if (!isEnoughBalance(amount)) {
                 showErrorMessage("Insufficient Balance $" + amount + " in your account. " +
-                        "Your balance is $" + cardRepository.getLoggedInCard().getBalance());
+                        "Your balance is $" + loggedInCard.getBalance());
                 continue;
             }
 
@@ -48,6 +48,6 @@ public class TransferInputAmountScreen {
     }
 
     private boolean isEnoughBalance(Integer amount) {
-        return cardRepository.getLoggedInCard().getBalance() >= amount;
+        return loggedInCard.getBalance() >= amount;
     }
 }

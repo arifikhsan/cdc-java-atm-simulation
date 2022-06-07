@@ -34,7 +34,7 @@ public class TransferConfirmationScreen {
 
     private void transferMoney() {
         transferRepository.getTransfers().add(transferModel);
-        cardRepository.getLoggedInCard().setBalance(cardRepository.getLoggedInCard().getBalance() - transferModel.getAmount());
+        loggedInCard.setBalance(loggedInCard.getBalance() - transferModel.getAmount());
         transferModel.getToCard().setBalance(transferModel.getToCard().getBalance() + transferModel.getAmount());
     }
 

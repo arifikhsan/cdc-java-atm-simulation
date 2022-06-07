@@ -53,7 +53,7 @@ public class TransferSummaryScreen {
         println("Destination Account: " + transferModel.getToCard().getNumber());
         println("Amount: $" + transferModel.getAmount());
         println("Reference Number: " + transferModel.getReference());
-        println("Current Balance: $" + cardRepository.getLoggedInCard().getBalance());
+        println("Current Balance: $" + loggedInCard.getBalance());
         println("Date: " + transferModel.getDateTime().format(dateTimeFormatter));
         printHorizontalLine();
     }
