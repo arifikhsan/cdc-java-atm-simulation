@@ -48,6 +48,6 @@ public class TransferInputAccountScreen {
     }
 
     private boolean isAccountExist(String destinationAccount) {
-        return cardRepository.isExistByNumber(destinationAccount);
+        return cardRepository.isExistByCardNumber(destinationAccount);
     }
 }

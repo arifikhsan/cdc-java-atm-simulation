@@ -23,11 +23,11 @@ public class CardRepository {
                 .orElse(null);
     }
 
-    public boolean isExistByNumber(String cardNumber) {
+    public boolean isExistByCardNumber(String cardNumber) {
         return cards.stream().anyMatch(card -> card.getNumber().equals(cardNumber));
     }
 
-    public boolean isExistByNumberAndPin(String cardNumber, String pin) {
+    public boolean isExistByCardNumberAndPin(String cardNumber, String pin) {
         return cards.stream().anyMatch(card -> card.getNumber().equals(cardNumber) && card.getPin().equals(pin));
     }
 }

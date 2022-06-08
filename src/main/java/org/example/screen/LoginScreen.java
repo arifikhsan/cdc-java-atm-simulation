@@ -57,7 +57,7 @@ public class LoginScreen {
 
             println("Your PIN is " + pin);
 
-            if (!cardRepository.isExistByNumberAndPin(cardNumber, pin)) {
+            if (!cardRepository.isExistByCardNumberAndPin(cardNumber, pin)) {
                 showErrorMessage("Wrong card number or PIN");
                 continue;
             }
