@@ -4,8 +4,7 @@ import org.example.screen.contract.ScreenContract;
 
 import static java.lang.Integer.parseInt;
 import static org.example.Main.*;
-import static org.example.components.MessageComponent.printHorizontalLine;
-import static org.example.components.MessageComponent.printTransferConfirmationMessage;
+import static org.example.components.MessageComponent.*;
 import static org.example.router.Router.gotoSummaryScreen;
 import static org.example.util.NumberUtil.isAStringNumber;
 import static org.example.util.NumberUtil.isPositive;
@@ -25,7 +24,7 @@ public class TransferConfirmationScreen implements ScreenContract {
             if (option.isEmpty()) option = "2";
 
             if (!isValidOption(option)) {
-                println("Invalid Input");
+                showInvalidInputMessage();
                 continue;
             }
 

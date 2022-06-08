@@ -27,7 +27,6 @@ public class WithdrawSummaryScreen implements ScreenContract {
                 case 1 -> {
                     return;
                 }
-                // how to go back to welcome page?
                 case 2 -> exitApp();
                 default -> showInvalidOptionMessage(option);
             }
