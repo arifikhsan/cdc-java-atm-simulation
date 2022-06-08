@@ -1,6 +1,7 @@
 package org.example.screen.withdraw;
 
 import org.example.model.WithdrawModel;
+import org.example.screen.contract.ScreenContract;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +12,8 @@ import static org.example.router.Router.gotoWithdrawCustomScreen;
 import static org.example.router.Router.gotoWithdrawSummaryScreen;
 import static org.example.util.SystemUtil.*;
 
-public class WithdrawScreen {
+public class WithdrawScreen implements ScreenContract {
+    @Override
     public void show() {
         while (true) {
             printWithdrawMessage();

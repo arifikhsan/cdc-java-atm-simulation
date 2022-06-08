@@ -1,5 +1,7 @@
 package org.example.screen.transfer;
 
+import org.example.screen.contract.ScreenContract;
+
 import java.time.LocalDateTime;
 
 import static org.example.Main.scanner;
@@ -11,7 +13,8 @@ import static org.example.util.NumberUtil.generateRandomSixDigitNumber;
 import static org.example.util.NumberUtil.isAStringNumber;
 import static org.example.util.SystemUtil.println;
 
-public class TransferInputReferenceScreen {
+public class TransferInputReferenceScreen implements ScreenContract {
+    @Override
     public void show() {
         while (true) {
             var referenceNumber = generateRandomSixDigitNumber();

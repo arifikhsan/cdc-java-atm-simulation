@@ -1,5 +1,7 @@
 package org.example.screen.transfer;
 
+import org.example.screen.contract.ScreenContract;
+
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.showErrorMessage;
 import static org.example.components.MessageComponent.printTransferInputAccountMessage;
@@ -7,7 +9,8 @@ import static org.example.router.Router.gotoTransferInputAmountScreen;
 import static org.example.util.StringUtil.isValidAccountNumber;
 import static org.example.util.SystemUtil.println;
 
-public class TransferInputAccountScreen {
+public class TransferInputAccountScreen implements ScreenContract {
+    @Override
     public void show() {
         while (true) {
             printTransferInputAccountMessage();

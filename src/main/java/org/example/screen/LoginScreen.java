@@ -1,5 +1,7 @@
 package org.example.screen;
 
+import org.example.screen.contract.ScreenContract;
+
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.*;
 import static org.example.router.Router.gotoTransactionScreen;
@@ -8,8 +10,8 @@ import static org.example.util.StringUtil.isExact6Digits;
 import static org.example.util.SystemUtil.print;
 import static org.example.util.SystemUtil.println;
 
-public class LoginScreen {
-
+public class LoginScreen implements ScreenContract {
+    @Override
     public void show() {
         String cardNumber;
         String pin;

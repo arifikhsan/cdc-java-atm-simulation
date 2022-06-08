@@ -1,11 +1,14 @@
 package org.example.screen.withdraw;
 
+import org.example.screen.contract.ScreenContract;
+
 import static java.lang.Integer.parseInt;
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.*;
 import static org.example.util.SystemUtil.*;
 
-public class WithdrawSummaryScreen {
+public class WithdrawSummaryScreen implements ScreenContract {
+    @Override
     public void show() {
         while (true) {
             printWithdrawSummaryMessage();

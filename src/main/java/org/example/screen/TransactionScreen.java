@@ -1,5 +1,7 @@
 package org.example.screen;
 
+import org.example.screen.contract.ScreenContract;
+
 import static java.lang.Integer.parseInt;
 import static org.example.Main.loggedInCard;
 import static org.example.Main.scanner;
@@ -8,7 +10,8 @@ import static org.example.router.Router.gotoTransferScreen;
 import static org.example.router.Router.gotoWithdrawScreen;
 import static org.example.util.SystemUtil.*;
 
-public class TransactionScreen {
+public class TransactionScreen implements ScreenContract {
+    @Override
     public void show() {
         while (true) {
             printTransactionMessage();

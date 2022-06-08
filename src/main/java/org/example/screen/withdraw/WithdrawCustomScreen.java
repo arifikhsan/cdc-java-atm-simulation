@@ -1,6 +1,7 @@
 package org.example.screen.withdraw;
 
 import org.example.model.WithdrawModel;
+import org.example.screen.contract.ScreenContract;
 
 import java.time.LocalDateTime;
 
@@ -14,7 +15,8 @@ import static org.example.util.StringUtil.isValidAmountOfMoney;
 import static org.example.util.SystemUtil.print;
 import static org.example.util.SystemUtil.printEmptyLine;
 
-public class WithdrawCustomScreen {
+public class WithdrawCustomScreen implements ScreenContract {
+    @Override
     public void show() {
         while (true) {
             printWithdrawCustomMessage();

@@ -1,5 +1,7 @@
 package org.example.screen;
 
+import org.example.screen.contract.ScreenContract;
+
 import static java.lang.Integer.parseInt;
 import static org.example.Main.scanner;
 import static org.example.components.MessageComponent.*;
@@ -8,7 +10,9 @@ import static org.example.util.NumberUtil.isAStringNumber;
 import static org.example.util.NumberUtil.isPositive;
 import static org.example.util.SystemUtil.*;
 
-public class WelcomeScreen {
+public class WelcomeScreen implements ScreenContract {
+
+    @Override
     public void show() {
         //noinspection InfiniteLoopStatement
         while (true) {
