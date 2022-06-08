@@ -8,19 +8,19 @@ import static java.lang.Integer.parseInt;
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.*;
 import static org.example.util.NumberUtil.*;
+import static org.example.util.StringUtil.isValidAmountOfMoney;
 import static org.example.util.SystemUtil.print;
-import static org.example.util.SystemUtil.printNewLine;
+import static org.example.util.SystemUtil.printEmptyLine;
 
 public class WithdrawCustomScreen {
-
     public void show() {
         while (true) {
-            printWithdrawCustomScreenMessage();
+            printWithdrawCustomMessage();
             print("Enter amount to withdraw: ");
 
             var amount = scanner.nextLine();
 
-            if (!isValidAmount(amount)) {
+            if (!isValidAmountOfMoney(amount)) {
                 showErrorMessage("Invalid amount");
                 continue;
             }
@@ -48,12 +48,17 @@ public class WithdrawCustomScreen {
     }
 
     private void withdraw(int amount) {
+        var withdrawModel = saveWithdrawData(amount);
+        printEmptyLine();
+        showSuccessMessage("Withdraw success!");
+        gotoWithdrawSummaryScreen(withdrawModel);
+    }
+
+    private WithdrawModel saveWithdrawData(int amount) {
         loggedInCard.setBalance(loggedInCard.getBalance() - amount);
         var withdrawModel = new WithdrawModel(LocalDateTime.now(), amount, loggedInCard.getBalance(), loggedInCard);
         withdrawRepository.getWithdraws().add(withdrawModel);
-        printNewLine();
-        showSuccessMessage("Withdraw success!");
-        gotoWithdrawSummaryScreen(withdrawModel);
+        return withdrawModel;
     }
 
     private void gotoWithdrawSummaryScreen(WithdrawModel withdrawModel) {
@@ -63,9 +68,4 @@ public class WithdrawCustomScreen {
     private boolean isBalanceEnough(int withdrawAmount) {
         return loggedInCard.getBalance() >= withdrawAmount;
     }
-
-    private boolean isValidAmount(String amount) {
-        return !amount.isEmpty() && isAStringNumber(amount) && isPositive(parseInt(amount));
-    }
-
 }

@@ -2,14 +2,14 @@ package org.example.screen.transfer;
 
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.showErrorMessage;
-import static org.example.components.MessageComponent.showTransferInputAccountScreenMessage;
+import static org.example.components.MessageComponent.printTransferInputAccountMessage;
 import static org.example.util.StringUtil.isValidAccountNumber;
 import static org.example.util.SystemUtil.println;
 
 public class TransferInputAccountScreen {
     public void show() {
         while (true) {
-            showTransferInputAccountScreenMessage();
+            printTransferInputAccountMessage();
             println("Please enter destination account and press enter to continue or");
             println("Press enter to go back to main menu");
 

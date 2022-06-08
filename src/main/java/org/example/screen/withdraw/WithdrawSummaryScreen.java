@@ -11,7 +11,7 @@ import static org.example.util.SystemUtil.*;
 public class WithdrawSummaryScreen {
     public void show(WithdrawModel withdrawModel) {
         while (true) {
-            showWithdrawSummaryScreenMessage();
+            printWithdrawSummaryMessage();
             showSummaryDetailMessage(withdrawModel);
             showOptionsMessage();
 

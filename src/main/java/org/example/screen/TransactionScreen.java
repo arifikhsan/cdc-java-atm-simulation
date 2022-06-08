@@ -12,12 +12,12 @@ import static org.example.util.SystemUtil.*;
 public class TransactionScreen {
     public void show() {
         while (true) {
-            printTransactionScreenMessage();
+            printTransactionMessage();
             showUserInfo();
             showOptionMessage();
 
             var option = scanner.nextLine();
-            printNewLine();
+            printEmptyLine();
 
             if (option.isEmpty()) option = "5";
 

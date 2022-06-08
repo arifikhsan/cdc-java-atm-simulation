@@ -3,7 +3,7 @@ package org.example.screen.transfer;
 import static java.lang.Integer.parseInt;
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.printHorizontalLine;
-import static org.example.components.MessageComponent.showTransferConfirmationScreenMessage;
+import static org.example.components.MessageComponent.printTransferConfirmationMessage;
 import static org.example.util.NumberUtil.isAStringNumber;
 import static org.example.util.NumberUtil.isPositive;
 import static org.example.util.SystemUtil.*;
@@ -11,12 +11,12 @@ import static org.example.util.SystemUtil.*;
 public class TransferConfirmationScreen {
     public void show() {
         while (true) {
-            showTransferConfirmationScreenMessage();
+            printTransferConfirmationMessage();
             showSummary();
             showOptionMessage();
 
             var option = scanner.nextLine();
-            printNewLine();
+            printEmptyLine();
 
             if (option.isEmpty()) option = "2";
 

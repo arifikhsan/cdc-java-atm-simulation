@@ -1,45 +1,53 @@
 package org.example.components;
 
+import static org.example.util.SystemUtil.printDoubleEmptyLine;
 import static org.example.util.SystemUtil.println;
 
 public class MessageComponent {
     public static void printWelcomeMessage() {
+        printDoubleEmptyLine();
         println("======================================");
         println("||     Welcome to Very Good ATM     ||");
         println("======================================");
     }
 
-    public static void printLoginScreenMessage() {
+    public static void printLoginMessage() {
+        printDoubleEmptyLine();
         println("======================================");
         println("||       Login | Very Good ATM      ||");
         println("======================================");
     }
 
-    public static void printTransactionScreenMessage() {
+    public static void printTransactionMessage() {
+        printDoubleEmptyLine();
         println("======================================");
         println("||   Transaction | Very Good ATM    ||");
         println("======================================");
     }
 
-    public static void printWithdrawScreenMessage() {
+    public static void printWithdrawMessage() {
+        printDoubleEmptyLine();
         println("======================================");
         println("||  Withdraw Money | Very Good ATM  ||");
         println("======================================");
     }
 
-    public static void printWithdrawCustomScreenMessage() {
+    public static void printWithdrawCustomMessage() {
+        printDoubleEmptyLine();
         println("======================================");
         println("||  Other Withdraw | Very Good ATM  ||");
         println("======================================");
     }
 
-    public static void showWithdrawSummaryScreenMessage() {
+    public static void printWithdrawSummaryMessage() {
+        printDoubleEmptyLine();
         println("======================================");
         println("|| Withdraw Summary | Very Good ATM ||");
         println("======================================");
     }
 
-    public static void showTransferInputAccountScreenMessage() {
+    public static void printTransferInputAccountMessage() {
+        printDoubleEmptyLine();
         println("======================================");
         println("||  Transfer Money | Very Good ATM  ||");
         println("======================================");
@@ -47,7 +55,8 @@ public class MessageComponent {
         println("======================================");
     }
 
-    public static void showTransferInputAmountScreenMessage() {
+    public static void printTransferInputAmountMessage() {
+        printDoubleEmptyLine();
         println("======================================");
         println("||  Transfer Money | Very Good ATM  ||");
         println("======================================");
@@ -55,7 +64,8 @@ public class MessageComponent {
         println("======================================");
     }
 
-    public static void showTransferInputReferenceScreenMessage() {
+    public static void printTransferInputReferenceMessage() {
+        printDoubleEmptyLine();
         println("======================================");
         println("||  Transfer Money | Very Good ATM  ||");
         println("======================================");
@@ -63,7 +73,8 @@ public class MessageComponent {
         println("======================================");
     }
 
-    public static void showTransferSummaryScreenMessage() {
+    public static void printTransferSummaryMessage() {
+        printDoubleEmptyLine();
         println("======================================");
         println("||          Very Good ATM           ||");
         println("======================================");
@@ -71,7 +82,8 @@ public class MessageComponent {
         println("======================================");
     }
 
-    public static void showTransferConfirmationScreenMessage() {
+    public static void printTransferConfirmationMessage() {
+        printDoubleEmptyLine();
         println("======================================");
         println("||          Very Good ATM           ||");
         println("======================================");
@@ -79,10 +91,11 @@ public class MessageComponent {
         println("======================================");
     }
 
-    public static void showGoodByeMessage() {
+    public static void printGoodByeMessage() {
         println("======================================");
         println("||            Good Bye !!!          ||");
         println("======================================");
+        printDoubleEmptyLine();
     }
 
     public static void showErrorMessage(String message) {

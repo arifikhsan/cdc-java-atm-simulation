@@ -3,14 +3,14 @@ package org.example.screen.transfer;
 import static java.lang.Integer.parseInt;
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.showErrorMessage;
-import static org.example.components.MessageComponent.showTransferInputAmountScreenMessage;
+import static org.example.components.MessageComponent.printTransferInputAmountMessage;
 import static org.example.util.NumberUtil.*;
 import static org.example.util.SystemUtil.println;
 
 public class TransferInputAmountScreen {
     public void show() {
         while (true) {
-            showTransferInputAmountScreenMessage();
+            printTransferInputAmountMessage();
             println("Please enter amount and press enter to continue or");
             println("Press enter to go back");
 

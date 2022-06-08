@@ -12,7 +12,7 @@ import static org.example.util.SystemUtil.*;
 public class WithdrawScreen {
     public void show() {
         while (true) {
-            printWithdrawScreenMessage();
+            printWithdrawMessage();
             showBalanceMessage();
             showOptionsMessage();
 
@@ -28,7 +28,10 @@ public class WithdrawScreen {
                 case 1 -> withdraw(10);
                 case 2 -> withdraw(50);
                 case 3 -> withdraw(100);
-                case 4 -> gotoWithdrawCustomScreen();
+                case 4 -> {
+                    gotoWithdrawCustomScreen();
+                    return;
+                }
                 case 5 -> {
                     return;
                 }
@@ -52,7 +55,7 @@ public class WithdrawScreen {
         }
 
         var withdrawModel = saveWithdrawData(amount);
-        printNewLine();
+        printEmptyLine();
         showSuccessMessage("Withdraw success!");
         gotoWithdrawSummaryScreen(withdrawModel);
     }
