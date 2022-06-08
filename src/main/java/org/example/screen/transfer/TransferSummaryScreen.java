@@ -23,7 +23,7 @@ public class TransferSummaryScreen implements ScreenContract {
             if (option.isEmpty()) option = "2";
 
             if (!isValidOption(option)) {
-                showInvalidInputMessage();
+                printInvalidInputMessage();
                 continue;
             }
 

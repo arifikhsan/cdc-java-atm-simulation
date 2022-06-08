@@ -3,7 +3,7 @@ package org.example.screen.transfer;
 import org.example.screen.contract.ScreenContract;
 
 import static org.example.Main.*;
-import static org.example.components.MessageComponent.showErrorMessage;
+import static org.example.components.MessageComponent.printErrorMessage;
 import static org.example.components.MessageComponent.printTransferInputAccountMessage;
 import static org.example.router.Router.gotoTransferInputAmountScreen;
 import static org.example.util.StringUtil.isValidAccountNumber;
@@ -24,17 +24,17 @@ public class TransferInputAccountScreen implements ScreenContract {
             }
 
             if (!isValidAccountNumber(destinationAccountNumber)) {
-                showErrorMessage("Invalid Account");
+                printErrorMessage("Invalid Account");
                 continue;
             }
 
             if (!isAccountExist(destinationAccountNumber)) {
-                showErrorMessage("Account does not exist");
+                printErrorMessage("Account does not exist");
                 continue;
             }
 
             if (isMyOwnAccount(destinationAccountNumber)) {
-                showErrorMessage("You can't transfer to your own account");
+                printErrorMessage("You can't transfer to your own account");
                 continue;
             }
 

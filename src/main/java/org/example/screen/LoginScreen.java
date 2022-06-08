@@ -23,17 +23,17 @@ public class LoginScreen implements ScreenContract {
             cardNumber = scanner.nextLine();
 
             if (cardNumber.isEmpty()) {
-                showErrorMessage("Please enter your card number");
+                printErrorMessage("Please enter your card number");
                 continue;
             }
 
             if (!isAStringNumber(cardNumber)) {
-                showErrorMessage("Account Number should only contains numbers");
+                printErrorMessage("Account Number should only contains numbers");
                 continue;
             }
 
             if (!isExact6Digits(cardNumber)) {
-                showErrorMessage("Account Number should have 6 digits length");
+                printErrorMessage("Account Number should have 6 digits length");
                 continue;
             }
 
@@ -43,29 +43,29 @@ public class LoginScreen implements ScreenContract {
             pin = scanner.nextLine();
 
             if (pin.isEmpty()) {
-                showErrorMessage("Please enter your PIN");
+                printErrorMessage("Please enter your PIN");
                 continue;
             }
 
             if (!isAStringNumber(pin)) {
-                showErrorMessage("PIN should only contains numbers");
+                printErrorMessage("PIN should only contains numbers");
                 continue;
             }
 
             if (!isExact6Digits(pin)) {
-                showErrorMessage("PIN should have 6 digits length");
+                printErrorMessage("PIN should have 6 digits length");
                 continue;
             }
 
             println("Your PIN is " + pin);
 
             if (!cardRepository.isExistByCardNumberAndPin(cardNumber, pin)) {
-                showErrorMessage("Wrong card number or PIN");
+                printErrorMessage("Wrong card number or PIN");
                 continue;
             }
 
             loggedInCard = cardRepository.getCardByNumber(cardNumber);
-            showSuccessMessage("Welcome, " + loggedInCard.getName());
+            printSuccessMessage("Welcome, " + loggedInCard.getName());
             gotoTransactionScreen();
             return;
         }

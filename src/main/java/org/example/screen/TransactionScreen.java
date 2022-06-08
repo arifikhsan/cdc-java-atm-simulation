@@ -24,7 +24,7 @@ public class TransactionScreen implements ScreenContract {
             if (option.isEmpty()) option = "5";
 
             if (isInvalidInput(option)) {
-                showInvalidOptionMessage(option);
+                printInvalidOptionMessage(option);
                 continue;
             }
 
@@ -46,7 +46,7 @@ public class TransactionScreen implements ScreenContract {
                     continue;
                 }
                 default: {
-                    showInvalidOptionMessage(option);
+                    printInvalidOptionMessage(option);
                 }
             }
         }

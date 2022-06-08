@@ -24,7 +24,7 @@ public class WelcomeScreen implements ScreenContract {
             if (option.isEmpty()) option = "3";
 
             if (isValidOption(option)) {
-                showInvalidOptionMessage(option);
+                printInvalidOptionMessage(option);
                 continue;
             }
 
@@ -39,7 +39,7 @@ public class WelcomeScreen implements ScreenContract {
                 case 3:
                     continue;
                 default:
-                    showInvalidOptionMessage(option);
+                    printInvalidOptionMessage(option);
             }
         }
     }

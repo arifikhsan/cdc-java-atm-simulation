@@ -24,7 +24,7 @@ public class WithdrawScreen implements ScreenContract {
             if (option.isEmpty()) option = "5";
 
             if (isInvalidInput(option)) {
-                showInvalidOptionMessage(option);
+                printInvalidOptionMessage(option);
                 continue;
             }
 
@@ -39,20 +39,20 @@ public class WithdrawScreen implements ScreenContract {
                 case 5 -> {
                     return;
                 }
-                default -> showInvalidOptionMessage(option);
+                default -> printInvalidOptionMessage(option);
             }
         }
     }
 
     private void withdraw(Integer amount) {
         if (!isBalanceEnough(amount)) {
-            showErrorMessage("Insufficient withdraw balance $" + amount + ". Current balance is $" + loggedInCard.getBalance());
+            printErrorMessage("Insufficient withdraw balance $" + amount + ". Current balance is $" + loggedInCard.getBalance());
             return;
         }
 
         saveWithdrawData(amount);
         printEmptyLine();
-        showSuccessMessage("Withdraw success!");
+        printSuccessMessage("Withdraw success!");
         gotoWithdrawSummaryScreen();
     }
 

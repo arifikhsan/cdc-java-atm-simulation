@@ -98,13 +98,13 @@ public class MessageComponent {
         printDoubleEmptyLine();
     }
 
-    public static void showErrorMessage(String message) {
+    public static void printErrorMessage(String message) {
         printErrorLine();
         println(message);
         printErrorLine();
     }
 
-    public static void showSuccessMessage(String message) {
+    public static void printSuccessMessage(String message) {
         printHorizontalLine();
         println(message);
         printHorizontalLine();
@@ -118,14 +118,14 @@ public class MessageComponent {
         println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
     }
 
-    public static void showInvalidOptionMessage(String input) {
+    public static void printInvalidOptionMessage(String input) {
         printErrorLine();
         println("Your input: " + input);
         println("Is an invalid option. Please try again.");
         printErrorLine();
     }
 
-    public static void showInvalidInputMessage() {
+    public static void printInvalidInputMessage() {
         printErrorLine();
         println("Your input is invalid. Please try again.");
         printErrorLine();

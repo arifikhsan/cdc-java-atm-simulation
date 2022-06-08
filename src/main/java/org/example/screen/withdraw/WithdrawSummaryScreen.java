@@ -19,7 +19,7 @@ public class WithdrawSummaryScreen implements ScreenContract {
             if (option.isEmpty()) option = "2";
 
             if (isInvalidInput(option)) {
-                showInvalidOptionMessage(option);
+                printInvalidOptionMessage(option);
                 continue;
             }
 
@@ -28,7 +28,7 @@ public class WithdrawSummaryScreen implements ScreenContract {
                     return;
                 }
                 case 2 -> exitApp();
-                default -> showInvalidOptionMessage(option);
+                default -> printInvalidOptionMessage(option);
             }
         }
     }

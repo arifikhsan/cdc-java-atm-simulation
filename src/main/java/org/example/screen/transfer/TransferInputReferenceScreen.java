@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 import static org.example.Main.scanner;
 import static org.example.Main.transferModel;
-import static org.example.components.MessageComponent.showErrorMessage;
+import static org.example.components.MessageComponent.printErrorMessage;
 import static org.example.components.MessageComponent.printTransferInputReferenceMessage;
 import static org.example.router.Router.gotoTransferConfirmationScreen;
 import static org.example.util.NumberUtil.generateRandomSixDigitNumber;
@@ -27,12 +27,12 @@ public class TransferInputReferenceScreen implements ScreenContract {
             scanner.nextLine();
 
             if (referenceNumber.toString().isEmpty()) {
-                showErrorMessage("Invalid Reference Number");
+                printErrorMessage("Invalid Reference Number");
                 continue;
             }
 
             if (!isAStringNumber(referenceNumber.toString())) {
-                showErrorMessage("Invalid Reference Number");
+                printErrorMessage("Invalid Reference Number");
                 continue;
             }
 

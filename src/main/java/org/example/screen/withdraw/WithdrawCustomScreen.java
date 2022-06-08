@@ -25,24 +25,24 @@ public class WithdrawCustomScreen implements ScreenContract {
             var amount = scanner.nextLine();
 
             if (!isValidAmountOfMoney(amount)) {
-                showErrorMessage("Invalid amount");
+                printErrorMessage("Invalid amount");
                 continue;
             }
 
             var withdrawAmount = parseInt(amount);
 
             if (isGreaterThan1000(withdrawAmount)) {
-                showErrorMessage("Maximum amount to withdraw is $1000");
+                printErrorMessage("Maximum amount to withdraw is $1000");
                 continue;
             }
 
             if (!isBalanceEnough(withdrawAmount)) {
-                showErrorMessage("Insufficient balance $" + withdrawAmount + ". Current balance is $" + loggedInCard.getBalance());
+                printErrorMessage("Insufficient balance $" + withdrawAmount + ". Current balance is $" + loggedInCard.getBalance());
                 continue;
             }
 
             if (!isMultiplyOf10(withdrawAmount)) {
-                showErrorMessage("Amount must be multiple of 10");
+                printErrorMessage("Amount must be multiple of 10");
                 continue;
             }
 
@@ -54,7 +54,7 @@ public class WithdrawCustomScreen implements ScreenContract {
     private void withdraw(int amount) {
         saveWithdrawData(amount);
         printEmptyLine();
-        showSuccessMessage("Withdraw success!");
+        printSuccessMessage("Withdraw success!");
         gotoWithdrawSummaryScreen();
     }
 
