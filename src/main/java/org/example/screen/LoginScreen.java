@@ -2,6 +2,7 @@ package org.example.screen;
 
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.*;
+import static org.example.router.Router.gotoTransactionScreen;
 import static org.example.util.NumberUtil.isAStringNumber;
 import static org.example.util.StringUtil.isExact6Digits;
 import static org.example.util.SystemUtil.print;
@@ -14,7 +15,7 @@ public class LoginScreen {
         String pin;
 
         while (true) {
-            printLoginScreenMessage();
+            printLoginMessage();
 
             print("Enter your card number: ");
             cardNumber = scanner.nextLine();
@@ -66,9 +67,5 @@ public class LoginScreen {
             gotoTransactionScreen();
             return;
         }
-    }
-
-    public void gotoTransactionScreen() {
-        new TransactionScreen().show();
     }
 }

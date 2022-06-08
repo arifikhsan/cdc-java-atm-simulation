@@ -3,6 +3,7 @@ package org.example.screen;
 import static java.lang.Integer.parseInt;
 import static org.example.Main.scanner;
 import static org.example.components.MessageComponent.*;
+import static org.example.router.Router.gotoLoginScreen;
 import static org.example.util.NumberUtil.isAStringNumber;
 import static org.example.util.NumberUtil.isPositive;
 import static org.example.util.SystemUtil.*;
@@ -18,7 +19,7 @@ public class WelcomeScreen {
 
             if (option.isEmpty()) option = "3";
 
-            if (isValidInput(option)) {
+            if (isValidOption(option)) {
                 showInvalidOptionMessage(option);
                 continue;
             }
@@ -39,11 +40,7 @@ public class WelcomeScreen {
         }
     }
 
-    private void gotoLoginScreen() {
-        new LoginScreen().show();
-    }
-
-    private Boolean isValidInput(String input) {
+    private Boolean isValidOption(String input) {
         return isAStringNumber(input) && isPositive(parseInt(input)) && !isIncludedInOption(input);
     }
 

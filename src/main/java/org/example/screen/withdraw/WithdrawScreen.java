@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
 import static java.lang.Integer.parseInt;
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.*;
+import static org.example.router.Router.gotoWithdrawCustomScreen;
+import static org.example.router.Router.gotoWithdrawSummaryScreen;
 import static org.example.util.SystemUtil.*;
 
 public class WithdrawScreen {
@@ -40,31 +42,22 @@ public class WithdrawScreen {
         }
     }
 
-    private void gotoWithdrawCustomScreen() {
-        new WithdrawCustomScreen().show();
-    }
-
-    private void gotoWithdrawSummaryScreen(WithdrawModel withdrawModel) {
-        new WithdrawSummaryScreen().show(withdrawModel);
-    }
-
     private void withdraw(Integer amount) {
         if (!isBalanceEnough(amount)) {
             showErrorMessage("Insufficient withdraw balance $" + amount + ". Current balance is $" + loggedInCard.getBalance());
             return;
         }
 
-        var withdrawModel = saveWithdrawData(amount);
+        saveWithdrawData(amount);
         printEmptyLine();
         showSuccessMessage("Withdraw success!");
-        gotoWithdrawSummaryScreen(withdrawModel);
+        gotoWithdrawSummaryScreen();
     }
 
-    private WithdrawModel saveWithdrawData(Integer amount) {
+    private void saveWithdrawData(Integer amount) {
         loggedInCard.setBalance(loggedInCard.getBalance() - amount);
-        var withdrawModel = new WithdrawModel(LocalDateTime.now(), amount, loggedInCard.getBalance(), loggedInCard);
+        withdrawModel = new WithdrawModel(LocalDateTime.now(), amount, loggedInCard.getBalance(), loggedInCard);
         withdrawRepository.getWithdraws().add(withdrawModel);
-        return withdrawModel;
     }
 
     private Boolean isBalanceEnough(Integer amount) {

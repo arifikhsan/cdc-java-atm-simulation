@@ -7,7 +7,9 @@ import java.time.LocalDateTime;
 import static java.lang.Integer.parseInt;
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.*;
-import static org.example.util.NumberUtil.*;
+import static org.example.router.Router.gotoWithdrawSummaryScreen;
+import static org.example.util.NumberUtil.isGreaterThan1000;
+import static org.example.util.NumberUtil.isMultiplyOf10;
 import static org.example.util.StringUtil.isValidAmountOfMoney;
 import static org.example.util.SystemUtil.print;
 import static org.example.util.SystemUtil.printEmptyLine;
@@ -48,21 +50,16 @@ public class WithdrawCustomScreen {
     }
 
     private void withdraw(int amount) {
-        var withdrawModel = saveWithdrawData(amount);
+        saveWithdrawData(amount);
         printEmptyLine();
         showSuccessMessage("Withdraw success!");
-        gotoWithdrawSummaryScreen(withdrawModel);
+        gotoWithdrawSummaryScreen();
     }
 
-    private WithdrawModel saveWithdrawData(int amount) {
+    private void saveWithdrawData(int amount) {
         loggedInCard.setBalance(loggedInCard.getBalance() - amount);
-        var withdrawModel = new WithdrawModel(LocalDateTime.now(), amount, loggedInCard.getBalance(), loggedInCard);
+        withdrawModel = new WithdrawModel(LocalDateTime.now(), amount, loggedInCard.getBalance(), loggedInCard);
         withdrawRepository.getWithdraws().add(withdrawModel);
-        return withdrawModel;
-    }
-
-    private void gotoWithdrawSummaryScreen(WithdrawModel withdrawModel) {
-        new WithdrawSummaryScreen().show(withdrawModel);
     }
 
     private boolean isBalanceEnough(int withdrawAmount) {

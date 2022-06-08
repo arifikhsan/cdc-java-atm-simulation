@@ -1,18 +1,15 @@
 package org.example.screen.withdraw;
 
-import org.example.model.WithdrawModel;
-
 import static java.lang.Integer.parseInt;
-import static org.example.Main.dateTimeFormatter;
-import static org.example.Main.scanner;
+import static org.example.Main.*;
 import static org.example.components.MessageComponent.*;
 import static org.example.util.SystemUtil.*;
 
 public class WithdrawSummaryScreen {
-    public void show(WithdrawModel withdrawModel) {
+    public void show() {
         while (true) {
             printWithdrawSummaryMessage();
-            showSummaryDetailMessage(withdrawModel);
+            showSummaryDetailMessage();
             showOptionsMessage();
 
             var option = scanner.nextLine();
@@ -34,9 +31,9 @@ public class WithdrawSummaryScreen {
         }
     }
 
-    private void showSummaryDetailMessage(WithdrawModel withdrawModel) {
+    private void showSummaryDetailMessage() {
         println("Summary");
-        println("Date: " + withdrawModel .getDatetime().format(dateTimeFormatter));
+        println("Date: " + withdrawModel.getDatetime().format(dateTimeFormatter));
         println("Withdraw amount: $ " + withdrawModel.getAmount());
         println("Current Balance: $ " + withdrawModel.getCard().getBalance());
     }

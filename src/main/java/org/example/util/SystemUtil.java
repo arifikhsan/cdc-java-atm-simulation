@@ -1,6 +1,6 @@
 package org.example.util;
 
-import static org.example.components.MessageComponent.showGoodByeMessage;
+import static org.example.components.MessageComponent.printGoodByeMessage;
 
 public class SystemUtil {
     public static void println(String string) {
@@ -15,12 +15,17 @@ public class SystemUtil {
         System.out.println();
     }
 
-    public static void printNewLine() {
-        System.out.println();
+    public static void printEmptyLine() {
+        println();
+    }
+
+    public static void printDoubleEmptyLine() {
+        println();
+        println();
     }
 
     public static void exitApp() {
-        showGoodByeMessage();
+        printGoodByeMessage();
         exitConsoleApp();
     }
 

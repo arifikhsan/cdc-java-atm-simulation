@@ -1,12 +1,11 @@
 package org.example.screen;
 
-import org.example.screen.transfer.TransferInputAccountScreen;
-import org.example.screen.withdraw.WithdrawScreen;
-
 import static java.lang.Integer.parseInt;
 import static org.example.Main.loggedInCard;
 import static org.example.Main.scanner;
 import static org.example.components.MessageComponent.*;
+import static org.example.router.Router.gotoTransferScreen;
+import static org.example.router.Router.gotoWithdrawScreen;
 import static org.example.util.SystemUtil.*;
 
 public class TransactionScreen {
@@ -48,14 +47,6 @@ public class TransactionScreen {
                 }
             }
         }
-    }
-
-    private void gotoWithdrawScreen() {
-        new WithdrawScreen().show();
-    }
-
-    private void gotoTransferScreen() {
-        new TransferInputAccountScreen().show();
     }
 
     private void showUserInfo() {

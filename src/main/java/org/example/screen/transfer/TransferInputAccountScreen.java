@@ -3,6 +3,7 @@ package org.example.screen.transfer;
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.showErrorMessage;
 import static org.example.components.MessageComponent.printTransferInputAccountMessage;
+import static org.example.router.Router.gotoTransferInputAmountScreen;
 import static org.example.util.StringUtil.isValidAccountNumber;
 import static org.example.util.SystemUtil.println;
 
@@ -29,12 +30,21 @@ public class TransferInputAccountScreen {
                 continue;
             }
 
+            if (isMyOwnAccount(destinationAccountNumber)) {
+                showErrorMessage("You can't transfer to your own account");
+                continue;
+            }
+
             var destinationAccount = cardRepository.getCardByNumber(destinationAccountNumber);
             transferModel.setFromCard(loggedInCard);
             transferModel.setToCard(destinationAccount);
-            new TransferInputAmountScreen().show();
+            gotoTransferInputAmountScreen();
             return;
         }
+    }
+
+    private boolean isMyOwnAccount(String destinationAccountNumber) {
+        return loggedInCard.getNumber().equals(destinationAccountNumber);
     }
 
     private boolean isAccountExist(String destinationAccount) {

@@ -4,6 +4,7 @@ import static java.lang.Integer.parseInt;
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.showErrorMessage;
 import static org.example.components.MessageComponent.printTransferInputAmountMessage;
+import static org.example.router.Router.gotoTransferInputReferenceString;
 import static org.example.util.NumberUtil.*;
 import static org.example.util.SystemUtil.println;
 
@@ -44,7 +45,7 @@ public class TransferInputAmountScreen {
             }
 
             transferModel.setAmount(amount);
-            new TransferInputReferenceScreen().show();
+            gotoTransferInputReferenceString();
             return;
         }
     }

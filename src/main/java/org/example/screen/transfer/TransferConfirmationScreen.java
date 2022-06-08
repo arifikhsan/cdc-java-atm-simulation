@@ -4,6 +4,7 @@ import static java.lang.Integer.parseInt;
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.printHorizontalLine;
 import static org.example.components.MessageComponent.printTransferConfirmationMessage;
+import static org.example.router.Router.gotoSummaryScreen;
 import static org.example.util.NumberUtil.isAStringNumber;
 import static org.example.util.NumberUtil.isPositive;
 import static org.example.util.SystemUtil.*;
@@ -38,10 +39,6 @@ public class TransferConfirmationScreen {
         transferRepository.getTransfers().add(transferModel);
         loggedInCard.setBalance(loggedInCard.getBalance() - transferModel.getAmount());
         transferModel.getToCard().setBalance(transferModel.getToCard().getBalance() + transferModel.getAmount());
-    }
-
-    private void gotoSummaryScreen() {
-        new TransferSummaryScreen().show();
     }
 
     private boolean isValidOption(String option) {
