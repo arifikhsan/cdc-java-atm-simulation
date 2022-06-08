@@ -1,11 +1,11 @@
-package org.example.seeder;
+package org.example.data;
 
 import org.example.model.CardModel;
 
 import java.util.List;
 
-public class CardSeeder {
-    public static List<CardModel> seed() {
+public class CardData {
+    public static List<CardModel> getAllCards() {
         var card1 = new CardModel();
         card1.setName("John Doe");
         card1.setNumber("111111");

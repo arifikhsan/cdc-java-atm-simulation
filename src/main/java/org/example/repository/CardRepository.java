@@ -1,12 +1,12 @@
 package org.example.repository;
 
 import org.example.model.CardModel;
-import org.example.seeder.CardSeeder;
+import org.example.data.CardData;
 
 import java.util.List;
 
 public class CardRepository {
-    private List<CardModel> cards = CardSeeder.seed();
+    private List<CardModel> cards = CardData.getAllCards();
 
     public List<CardModel> getCards() {
         return cards;
