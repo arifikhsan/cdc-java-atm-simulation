@@ -1,7 +1,6 @@
 package org.example.components;
 
-import static org.example.util.SystemUtil.printDoubleEmptyLine;
-import static org.example.util.SystemUtil.println;
+import static org.example.util.SystemUtil.*;
 
 public class MessageComponent {
     public static void printWelcomeMessage() {
@@ -100,34 +99,38 @@ public class MessageComponent {
 
     public static void printErrorMessage(String message) {
         printErrorLine();
-        println(message);
+        printlnRedText(message);
         printErrorLine();
     }
 
     public static void printSuccessMessage(String message) {
-        printHorizontalLine();
-        println(message);
-        printHorizontalLine();
+        printSuccessLine();
+        printlnGreenText(message);
+        printSuccessLine();
     }
 
     public static void printHorizontalLine() {
         println("======================================");
     }
 
+    public static void printSuccessLine() {
+        printlnGreenText("======================================");
+    }
+
     public static void printErrorLine() {
-        println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        printlnRedText("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
     }
 
     public static void printInvalidOptionMessage(String input) {
         printErrorLine();
-        println("Your input: " + input);
-        println("Is an invalid option. Please try again.");
+        printlnRedText("Your input: " + input);
+        printlnRedText("Is an invalid option. Please try again.");
         printErrorLine();
     }
 
     public static void printInvalidInputMessage() {
         printErrorLine();
-        println("Your input is invalid. Please try again.");
+        printlnRedText("Your input is invalid. Please try again.");
         printErrorLine();
     }
 }
