@@ -23,7 +23,7 @@ public class WelcomeScreen implements ScreenContract {
 
             if (option.isEmpty()) option = "3";
 
-            if (isValidOption(option)) {
+            if (!isValidOption(option)) {
                 printInvalidOptionMessage(option);
                 continue;
             }
@@ -45,7 +45,7 @@ public class WelcomeScreen implements ScreenContract {
     }
 
     private Boolean isValidOption(String input) {
-        return isAStringNumber(input) && isPositive(parseInt(input)) && !isIncludedInOption(input);
+        return isAStringNumber(input) && isPositive(parseInt(input)) && isIncludedInOption(input);
     }
 
     private boolean isIncludedInOption(String option) {

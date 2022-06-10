@@ -30,6 +30,7 @@ public class TransferConfirmationScreen implements ScreenContract {
 
             if (parseInt(option) == 1) {
                 transferMoney();
+                printSuccessMessage("Transfer successful");
                 gotoSummaryScreen();
             }
 
