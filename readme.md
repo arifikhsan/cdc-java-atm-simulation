@@ -4,13 +4,11 @@
 
 ## Features
 
-* Deposit
-* Withdraw
 * Balance Inquiry
+* Withdraw
 * Transfer
-* Change PIN
-* Exit
 
 ## Installation
 
+* Java 17
 * Gradle
