@@ -22,12 +22,12 @@ public class CardData {
     }
 }
 
-// Name : John Doe
-// PIN:012108
-// Balance:$100
-// Account Number:112233
+// Name: John Doe
+// PIN: 012108
+// Balance: $100
+// Account Number: 112233
 //
-// Name:Jane Doe
-// PIN:932012
-// Balance:$30
+// Name: Jane Doe
+// PIN: 932012
+// Balance: $30
 // Account Number: 112244
