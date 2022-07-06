@@ -27,7 +27,7 @@ class CardRepositoryTest {
     @Test
     void testGetCardByNumber2() {
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(new ArrayList<>());
+        cardRepository.setAccounts(new ArrayList<>());
         assertNull(cardRepository.getCardByNumber("foo"));
     }
 
@@ -78,7 +78,7 @@ class CardRepositoryTest {
         accountModelList.add(new AccountModel());
 
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(accountModelList);
+        cardRepository.setAccounts(accountModelList);
         cardRepository.getCardByNumber("foo");
     }
 
@@ -114,7 +114,7 @@ class CardRepositoryTest {
         accountModelList.add(null);
 
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(accountModelList);
+        cardRepository.setAccounts(accountModelList);
         cardRepository.getCardByNumber("foo");
     }
 
@@ -133,7 +133,7 @@ class CardRepositoryTest {
     @Test
     void testIsExistByCardNumber2() {
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(new ArrayList<>());
+        cardRepository.setAccounts(new ArrayList<>());
         assertFalse(cardRepository.isExistByCardNumber("foo"));
     }
 
@@ -170,7 +170,7 @@ class CardRepositoryTest {
         accountModelList.add(new AccountModel());
 
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(accountModelList);
+        cardRepository.setAccounts(accountModelList);
         cardRepository.isExistByCardNumber("foo");
     }
 
@@ -207,7 +207,7 @@ class CardRepositoryTest {
         accountModelList.add(null);
 
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(accountModelList);
+        cardRepository.setAccounts(accountModelList);
         cardRepository.isExistByCardNumber("foo");
     }
 
@@ -227,7 +227,7 @@ class CardRepositoryTest {
     @Test
     void testIsExistByCardNumberAndPin2() {
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(new ArrayList<>());
+        cardRepository.setAccounts(new ArrayList<>());
         assertFalse(cardRepository.isExistByCardNumberAndPin("foo", "foo"));
     }
 
@@ -264,7 +264,7 @@ class CardRepositoryTest {
         accountModelList.add(new AccountModel());
 
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(accountModelList);
+        cardRepository.setAccounts(accountModelList);
         cardRepository.isExistByCardNumberAndPin("foo", "foo");
     }
 
@@ -301,7 +301,7 @@ class CardRepositoryTest {
         accountModelList.add(null);
 
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(accountModelList);
+        cardRepository.setAccounts(accountModelList);
         cardRepository.isExistByCardNumberAndPin("foo", "foo");
     }
 
@@ -341,7 +341,7 @@ class CardRepositoryTest {
         accountModelList.add(accountModel);
 
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(accountModelList);
+        cardRepository.setAccounts(accountModelList);
         cardRepository.isExistByCardNumberAndPin("42", "foo");
     }
 
@@ -350,16 +350,16 @@ class CardRepositoryTest {
      *
      * <ul>
      *   <li>default or parameterless constructor of {@link CardRepository}
-     *   <li>{@link CardRepository#setCards(List)}
-     *   <li>{@link CardRepository#getCards()}
+     *   <li>{@link CardRepository#setAccounts(List)}
+     *   <li>{@link CardRepository#getAccounts()}
      * </ul>
      */
     @Test
     void testConstructor() {
         CardRepository actualCardRepository = new CardRepository();
         ArrayList<AccountModel> accountModelList = new ArrayList<>();
-        actualCardRepository.setCards(accountModelList);
-        assertSame(accountModelList, actualCardRepository.getCards());
+        actualCardRepository.setAccounts(accountModelList);
+        assertSame(accountModelList, actualCardRepository.getAccounts());
     }
 }
 

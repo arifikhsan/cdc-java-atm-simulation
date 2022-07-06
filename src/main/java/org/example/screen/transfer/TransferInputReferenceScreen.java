@@ -8,12 +8,11 @@ import static org.example.Main.scanner;
 import static org.example.Main.transferModel;
 import static org.example.components.MessageComponent.printErrorMessage;
 import static org.example.components.MessageComponent.printTransferInputReferenceMessage;
-import static org.example.router.Router.gotoTransferConfirmationScreen;
 import static org.example.util.NumberUtil.generateRandomSixDigitNumber;
 import static org.example.util.NumberUtil.isAStringNumber;
 import static org.example.util.SystemUtil.println;
 
-public class TransferInputReferenceScreen implements ScreenContract {
+public class TransferInputReferenceScreen extends ScreenContract {
     @Override
     public void show() {
         while (true) {
@@ -38,7 +37,7 @@ public class TransferInputReferenceScreen implements ScreenContract {
 
             transferModel.setReference(referenceNumber);
             transferModel.setDateTime(LocalDateTime.now());
-            gotoTransferConfirmationScreen();
+            currentScreen = transferConfirmation;
             return;
         }
     }

@@ -6,11 +6,24 @@ import static java.lang.Integer.parseInt;
 import static org.example.Main.loggedInAccount;
 import static org.example.Main.scanner;
 import static org.example.components.MessageComponent.*;
-import static org.example.router.Router.gotoTransferScreen;
-import static org.example.router.Router.gotoWithdrawScreen;
 import static org.example.util.SystemUtil.*;
 
-public class TransactionScreen implements ScreenContract {
+public class TransactionScreen extends ScreenContract {
+    private static final Integer DEFAULT_CHOICE = 3;
+
+    private void showOptionMessage() {
+        printHorizontalLine();
+        println("1. Withdraw");
+        println("2. Fund Transfer");
+        println("3. Exit"); // back to login screen
+        printHorizontalLine();
+        print("Select transaction [" + DEFAULT_CHOICE + "]: ");
+    }
+
+    private Boolean isInvalidInput(String input) {
+        return !input.matches("[1-3]");
+    }
+
     @Override
     public void show() {
         while (true) {
@@ -21,7 +34,7 @@ public class TransactionScreen implements ScreenContract {
             var option = scanner.nextLine();
             printEmptyLine();
 
-            if (option.isEmpty()) option = "5";
+            if (option.isEmpty()) option = DEFAULT_CHOICE.toString();
 
             if (isInvalidInput(option)) {
                 printInvalidOptionMessage(option);
@@ -29,23 +42,19 @@ public class TransactionScreen implements ScreenContract {
             }
 
             switch (parseInt(option)) {
-                case 1: {
-                    gotoWithdrawScreen();
-                    continue;
-                }
-                case 2: {
-                    gotoTransferScreen();
-                    continue;
-                }
-                case 3: {
-                    loggedInAccount = null;
+                case 1 -> {
+                    currentScreen = withdraw;
                     return;
                 }
-                case 4: exitApp();
-                case 5: {
-                    continue;
+                case 2 -> {
+                    currentScreen = transferInputAccount;
+                    return;
                 }
-                default: {
+                case 3 -> {
+                    currentScreen = welcome;
+                    return;
+                }
+                default -> {
                     printInvalidOptionMessage(option);
                 }
             }
@@ -58,20 +67,5 @@ public class TransactionScreen implements ScreenContract {
         println("Account Number: " + loggedInAccount.getNumber());
         println("Balance: $" + loggedInAccount.getBalance());
         printHorizontalLine();
-    }
-
-    private void showOptionMessage() {
-        printHorizontalLine();
-        println("1. Withdraw");
-        println("2. Transfer");
-        println("3. Logout");
-        println("4. Exit");
-        println("5. Do nothing");
-        printHorizontalLine();
-        print("Select transaction [5]: ");
-    }
-
-    private Boolean isInvalidInput(String input) {
-        return !input.matches("[1-5]");
     }
 }

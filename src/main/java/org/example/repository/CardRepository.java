@@ -1,33 +1,33 @@
 package org.example.repository;
 
 import org.example.model.AccountModel;
-import org.example.data.CardData;
+import org.example.data.AccountData;
 
 import java.util.List;
 
 public class CardRepository {
-    private List<AccountModel> cards = CardData.getAllCards();
+    private List<AccountModel> accounts = AccountData.getAllAccounts();
 
-    public List<AccountModel> getCards() {
-        return cards;
+    public List<AccountModel> getAccounts() {
+        return accounts;
     }
 
-    public void setCards(List<AccountModel> cards) {
-        this.cards = cards;
+    public void setAccounts(List<AccountModel> accounts) {
+        this.accounts = accounts;
     }
 
     public AccountModel getCardByNumber(String cardNumber) {
-        return cards.stream()
+        return accounts.stream()
                 .filter(card -> card.getNumber().equals(cardNumber))
                 .findFirst()
                 .orElse(null);
     }
 
     public boolean isExistByCardNumber(String cardNumber) {
-        return cards.stream().anyMatch(card -> card.getNumber().equals(cardNumber));
+        return accounts.stream().anyMatch(card -> card.getNumber().equals(cardNumber));
     }
 
     public boolean isExistByCardNumberAndPin(String cardNumber, String pin) {
-        return cards.stream().anyMatch(card -> card.getNumber().equals(cardNumber) && card.getPin().equals(pin));
+        return accounts.stream().anyMatch(card -> card.getNumber().equals(cardNumber) && card.getPin().equals(pin));
     }
 }

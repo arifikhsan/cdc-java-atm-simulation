@@ -7,13 +7,13 @@ import java.util.List;
 import org.example.model.AccountModel;
 import org.junit.jupiter.api.Test;
 
-class CardDataTest {
+class AccountDataTest {
     /**
-     * Method under test: {@link CardData#getAllCards()}
+     * Method under test: {@link AccountData#getAllAccounts()}
      */
     @Test
     void testGetAllCards() {
-        List<AccountModel> actualAllCards = CardData.getAllCards();
+        List<AccountModel> actualAllCards = AccountData.getAllAccounts();
         assertEquals(2, actualAllCards.size());
         AccountModel getResult = actualAllCards.get(0);
         assertEquals("111111", getResult.getPin());

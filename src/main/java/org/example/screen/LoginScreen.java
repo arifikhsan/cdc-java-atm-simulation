@@ -4,13 +4,11 @@ import org.example.screen.contract.ScreenContract;
 
 import static org.example.Main.*;
 import static org.example.components.MessageComponent.*;
-import static org.example.router.Router.gotoTransactionScreen;
 import static org.example.util.NumberUtil.isAStringNumber;
 import static org.example.util.StringUtil.isExact6Digits;
-import static org.example.util.SystemUtil.print;
-import static org.example.util.SystemUtil.println;
+import static org.example.util.SystemUtil.*;
 
-public class LoginScreen implements ScreenContract {
+public class LoginScreen extends ScreenContract {
     @Override
     public void show() {
         String cardNumber;
@@ -42,6 +40,8 @@ public class LoginScreen implements ScreenContract {
             print("Enter your PIN: ");
             pin = scanner.nextLine();
 
+            printEmptyLine();
+
             if (pin.isEmpty()) {
                 printErrorMessage("Please enter your PIN");
                 continue;
@@ -66,7 +66,8 @@ public class LoginScreen implements ScreenContract {
 
             loggedInAccount = cardRepository.getCardByNumber(cardNumber);
             printSuccessMessage("Welcome, " + loggedInAccount.getName());
-            gotoTransactionScreen();
+//            gotoTransactionScreen();
+            currentScreen = transaction;
             return;
         }
     }

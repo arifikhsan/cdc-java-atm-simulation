@@ -7,7 +7,21 @@ import static org.example.Main.*;
 import static org.example.components.MessageComponent.*;
 import static org.example.util.SystemUtil.*;
 
-public class WithdrawSummaryScreen implements ScreenContract {
+public class WithdrawSummaryScreen extends ScreenContract {
+    private static final Integer DEFAULT_CHOICE = 2;
+
+    private void showOptionsMessage() {
+        printHorizontalLine();
+        println("1. Transaction");
+        println("2. Exit"); // ke login screen
+        printHorizontalLine();
+        print("Select Transaction ["+DEFAULT_CHOICE+"]: ");
+    }
+
+    private Boolean isInvalidInput(String input) {
+        return !input.matches("[1-2]");
+    }
+
     @Override
     public void show() {
         while (true) {
@@ -16,7 +30,7 @@ public class WithdrawSummaryScreen implements ScreenContract {
             showOptionsMessage();
 
             var option = scanner.nextLine();
-            if (option.isEmpty()) option = "2";
+            if (option.isEmpty()) option = DEFAULT_CHOICE.toString();
 
             if (isInvalidInput(option)) {
                 printInvalidOptionMessage(option);
@@ -25,9 +39,13 @@ public class WithdrawSummaryScreen implements ScreenContract {
 
             switch (parseInt(option)) {
                 case 1 -> {
+                    currentScreen = transaction;
                     return;
                 }
-                case 2 -> exitApp();
+                case 2 -> {
+                    currentScreen = welcome;
+                    return;
+                }
                 default -> printInvalidOptionMessage(option);
             }
         }
@@ -38,17 +56,5 @@ public class WithdrawSummaryScreen implements ScreenContract {
         println("Date: " + withdrawModel.getDatetime().format(dateTimeFormatter));
         println("Withdraw amount: $ " + withdrawModel.getAmount());
         println("Current Balance: $ " + withdrawModel.getCard().getBalance());
-    }
-
-    private void showOptionsMessage() {
-        printHorizontalLine();
-        println("1. Back");
-        println("2. Exit");
-        printHorizontalLine();
-        print("Select Transaction [2]: ");
-    }
-
-    private Boolean isInvalidInput(String input) {
-        return !input.matches("[1-2]");
     }
 }

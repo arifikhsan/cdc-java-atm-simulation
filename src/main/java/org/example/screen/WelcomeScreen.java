@@ -10,7 +10,22 @@ import static org.example.util.NumberUtil.isAStringNumber;
 import static org.example.util.NumberUtil.isPositive;
 import static org.example.util.SystemUtil.*;
 
-public class WelcomeScreen implements ScreenContract {
+public class WelcomeScreen extends ScreenContract {
+    private static final Integer DEFAULT_CHOICE = 3;
+
+    private void showOptionsMessage() {
+        printHorizontalLine();
+        println("Choice:");
+        println("1. Login");
+        println("2. Exit");
+        println("3. Do nothing");
+        printHorizontalLine();
+        print("Please enter your option ["+DEFAULT_CHOICE+"]: ");
+    }
+
+    private boolean isIncludedInOption(String option) {
+        return option.matches("[1-3]");
+    }
 
     @Override
     public void show() {
@@ -46,19 +61,5 @@ public class WelcomeScreen implements ScreenContract {
 
     private Boolean isValidOption(String input) {
         return isAStringNumber(input) && isPositive(parseInt(input)) && isIncludedInOption(input);
-    }
-
-    private boolean isIncludedInOption(String option) {
-        return option.matches("[1-3]");
-    }
-
-    private void showOptionsMessage() {
-        printHorizontalLine();
-        println("Choice:");
-        println("1. Login");
-        println("2. Exit");
-        println("3. Do nothing");
-        printHorizontalLine();
-        print("Please enter your option [3]: ");
     }
 }
