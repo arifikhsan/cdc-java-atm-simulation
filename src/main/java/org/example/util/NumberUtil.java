@@ -17,11 +17,11 @@ public class NumberUtil {
         return number > 0;
     }
 
-    public static boolean isGreaterThan1000(Integer number) {
-        return number > 1_000;
+    public static boolean isGreaterThanNumber(Integer number, Integer compareTo) {
+        return number > compareTo;
     }
 
-    public static boolean isMultiplyOf10(Integer number) {
-        return number % 10 == 0;
+    public static boolean isMultiplyOfNumber(Integer number, Integer multiplyBy) {
+        return number % multiplyBy == 0;
     }
 }

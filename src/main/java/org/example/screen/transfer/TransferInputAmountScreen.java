@@ -36,7 +36,7 @@ public class TransferInputAmountScreen extends ScreenContract {
                 continue;
             }
 
-            if (isGreaterThan1000(amount)) {
+            if (isGreaterThanNumber(amount, 1000)) {
                 printErrorMessage("Maximum amount to transfer is $1000");
                 continue;
             }

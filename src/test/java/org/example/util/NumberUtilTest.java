@@ -54,23 +54,5 @@ class NumberUtilTest {
         assertTrue(NumberUtil.isPositive(10));
         assertFalse(NumberUtil.isPositive(0));
     }
-
-    /**
-     * Method under test: {@link NumberUtil#isGreaterThan1000(Integer)}
-     */
-    @Test
-    void testIsGreaterThan1000() {
-        assertTrue(NumberUtil.isGreaterThan1000(1001));
-        assertFalse(NumberUtil.isGreaterThan1000(10));
-    }
-
-    /**
-     * Method under test: {@link NumberUtil#isMultiplyOf10(Integer)}
-     */
-    @Test
-    void testIsMultiplyOf10() {
-        assertTrue(NumberUtil.isMultiplyOf10(10));
-        assertFalse(NumberUtil.isMultiplyOf10(1));
-    }
 }
 
