@@ -71,7 +71,8 @@ public class WithdrawScreen extends ScreenContract {
 
     private void withdraw(Integer amount) {
         if (!isBalanceEnough(amount)) {
-            printErrorMessage("Insufficient withdraw balance $" + amount + ". Current balance is $" + loggedInAccount.getBalance());
+            printErrorMessage("Insufficient withdraw balance $" + amount);
+//            printErrorMessage("Insufficient withdraw balance $" + amount + ". Current balance is $" + loggedInAccount.getBalance());
             return;
         }
 
