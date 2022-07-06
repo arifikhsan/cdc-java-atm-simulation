@@ -3,8 +3,8 @@ package org.example.model;
 import java.time.LocalDateTime;
 
 public class TransferModel {
-    private CardModel fromCard;
-    private CardModel toCard;
+    private AccountModel fromCard;
+    private AccountModel toCard;
     private Integer amount;
     private LocalDateTime dateTime;
     private Integer reference;
@@ -12,7 +12,7 @@ public class TransferModel {
     public TransferModel() {
     }
 
-    public TransferModel(CardModel fromCard, CardModel toCard, Integer amount, LocalDateTime dateTime, Integer reference) {
+    public TransferModel(AccountModel fromCard, AccountModel toCard, Integer amount, LocalDateTime dateTime, Integer reference) {
         this.fromCard = fromCard;
         this.toCard = toCard;
         this.amount = amount;
@@ -20,19 +20,19 @@ public class TransferModel {
         this.reference = reference;
     }
 
-    public CardModel getFromCard() {
+    public AccountModel getFromCard() {
         return fromCard;
     }
 
-    public void setFromCard(CardModel fromCard) {
+    public void setFromCard(AccountModel fromCard) {
         this.fromCard = fromCard;
     }
 
-    public CardModel getToCard() {
+    public AccountModel getToCard() {
         return toCard;
     }
 
-    public void setToCard(CardModel toCard) {
+    public void setToCard(AccountModel toCard) {
         this.toCard = toCard;
     }
 

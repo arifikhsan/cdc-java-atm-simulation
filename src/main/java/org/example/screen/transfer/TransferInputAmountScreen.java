@@ -43,7 +43,7 @@ public class TransferInputAmountScreen implements ScreenContract {
 
             if (!isEnoughBalance(amount)) {
                 printErrorMessage("Insufficient Balance $" + amount + " in your account. " +
-                        "Your balance is $" + loggedInCard.getBalance());
+                        "Your balance is $" + loggedInAccount.getBalance());
                 continue;
             }
 
@@ -54,6 +54,6 @@ public class TransferInputAmountScreen implements ScreenContract {
     }
 
     private boolean isEnoughBalance(Integer amount) {
-        return loggedInCard.getBalance() >= amount;
+        return loggedInAccount.getBalance() >= amount;
     }
 }

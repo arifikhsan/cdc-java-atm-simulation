@@ -64,8 +64,8 @@ public class LoginScreen implements ScreenContract {
                 continue;
             }
 
-            loggedInCard = cardRepository.getCardByNumber(cardNumber);
-            printSuccessMessage("Welcome, " + loggedInCard.getName());
+            loggedInAccount = cardRepository.getCardByNumber(cardNumber);
+            printSuccessMessage("Welcome, " + loggedInAccount.getName());
             gotoTransactionScreen();
             return;
         }

@@ -1,22 +1,22 @@
 package org.example.repository;
 
-import org.example.model.CardModel;
+import org.example.model.AccountModel;
 import org.example.data.CardData;
 
 import java.util.List;
 
 public class CardRepository {
-    private List<CardModel> cards = CardData.getAllCards();
+    private List<AccountModel> cards = CardData.getAllCards();
 
-    public List<CardModel> getCards() {
+    public List<AccountModel> getCards() {
         return cards;
     }
 
-    public void setCards(List<CardModel> cards) {
+    public void setCards(List<AccountModel> cards) {
         this.cards = cards;
     }
 
-    public CardModel getCardByNumber(String cardNumber) {
+    public AccountModel getCardByNumber(String cardNumber) {
         return cards.stream()
                 .filter(card -> card.getNumber().equals(cardNumber))
                 .findFirst()

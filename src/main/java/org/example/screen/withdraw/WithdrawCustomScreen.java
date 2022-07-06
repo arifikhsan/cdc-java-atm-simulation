@@ -37,7 +37,7 @@ public class WithdrawCustomScreen implements ScreenContract {
             }
 
             if (!isBalanceEnough(withdrawAmount)) {
-                printErrorMessage("Insufficient balance $" + withdrawAmount + ". Current balance is $" + loggedInCard.getBalance());
+                printErrorMessage("Insufficient balance $" + withdrawAmount + ". Current balance is $" + loggedInAccount.getBalance());
                 continue;
             }
 
@@ -59,12 +59,12 @@ public class WithdrawCustomScreen implements ScreenContract {
     }
 
     private void saveWithdrawData(int amount) {
-        loggedInCard.setBalance(loggedInCard.getBalance() - amount);
-        withdrawModel = new WithdrawModel(LocalDateTime.now(), amount, loggedInCard.getBalance(), loggedInCard);
+        loggedInAccount.setBalance(loggedInAccount.getBalance() - amount);
+        withdrawModel = new WithdrawModel(LocalDateTime.now(), amount, loggedInAccount.getBalance(), loggedInAccount);
         withdrawRepository.getWithdraws().add(withdrawModel);
     }
 
     private boolean isBalanceEnough(int withdrawAmount) {
-        return loggedInCard.getBalance() >= withdrawAmount;
+        return loggedInAccount.getBalance() >= withdrawAmount;
     }
 }

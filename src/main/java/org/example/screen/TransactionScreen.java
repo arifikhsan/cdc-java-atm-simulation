@@ -3,7 +3,7 @@ package org.example.screen;
 import org.example.screen.contract.ScreenContract;
 
 import static java.lang.Integer.parseInt;
-import static org.example.Main.loggedInCard;
+import static org.example.Main.loggedInAccount;
 import static org.example.Main.scanner;
 import static org.example.components.MessageComponent.*;
 import static org.example.router.Router.gotoTransferScreen;
@@ -38,7 +38,7 @@ public class TransactionScreen implements ScreenContract {
                     continue;
                 }
                 case 3: {
-                    loggedInCard = null;
+                    loggedInAccount = null;
                     return;
                 }
                 case 4: exitApp();
@@ -54,9 +54,9 @@ public class TransactionScreen implements ScreenContract {
 
     private void showUserInfo() {
         printHorizontalLine();
-        println("Name: " + loggedInCard.getName());
-        println("Account Number: " + loggedInCard.getNumber());
-        println("Balance: $" + loggedInCard.getBalance());
+        println("Name: " + loggedInAccount.getName());
+        println("Account Number: " + loggedInAccount.getNumber());
+        println("Balance: $" + loggedInAccount.getBalance());
         printHorizontalLine();
     }
 

@@ -15,7 +15,7 @@ class WithdrawModelTest {
      *   <li>{@link WithdrawModel#WithdrawModel()}
      *   <li>{@link WithdrawModel#setAmount(Integer)}
      *   <li>{@link WithdrawModel#setBalance(Integer)}
-     *   <li>{@link WithdrawModel#setCard(CardModel)}
+     *   <li>{@link WithdrawModel#setCard(AccountModel)}
      *   <li>{@link WithdrawModel#setDatetime(LocalDateTime)}
      *   <li>{@link WithdrawModel#getAmount()}
      *   <li>{@link WithdrawModel#getBalance()}
@@ -28,13 +28,13 @@ class WithdrawModelTest {
         WithdrawModel actualWithdrawModel = new WithdrawModel();
         actualWithdrawModel.setAmount(10);
         actualWithdrawModel.setBalance(1);
-        CardModel cardModel = new CardModel();
-        actualWithdrawModel.setCard(cardModel);
+        AccountModel accountModel = new AccountModel();
+        actualWithdrawModel.setCard(accountModel);
         LocalDateTime ofResult = LocalDateTime.of(1, 1, 1, 1, 1);
         actualWithdrawModel.setDatetime(ofResult);
         assertEquals(10, actualWithdrawModel.getAmount().intValue());
         assertEquals(1, actualWithdrawModel.getBalance().intValue());
-        assertSame(cardModel, actualWithdrawModel.getCard());
+        assertSame(accountModel, actualWithdrawModel.getCard());
         assertSame(ofResult, actualWithdrawModel.getDatetime());
     }
 
@@ -42,10 +42,10 @@ class WithdrawModelTest {
      * Methods under test:
      *
      * <ul>
-     *   <li>{@link WithdrawModel#WithdrawModel(LocalDateTime, Integer, Integer, CardModel)}
+     *   <li>{@link WithdrawModel#WithdrawModel(LocalDateTime, Integer, Integer, AccountModel)}
      *   <li>{@link WithdrawModel#setAmount(Integer)}
      *   <li>{@link WithdrawModel#setBalance(Integer)}
-     *   <li>{@link WithdrawModel#setCard(CardModel)}
+     *   <li>{@link WithdrawModel#setCard(AccountModel)}
      *   <li>{@link WithdrawModel#setDatetime(LocalDateTime)}
      *   <li>{@link WithdrawModel#getAmount()}
      *   <li>{@link WithdrawModel#getBalance()}
@@ -56,16 +56,16 @@ class WithdrawModelTest {
     @Test
     void testConstructor2() {
         LocalDateTime datetime = LocalDateTime.of(1, 1, 1, 1, 1);
-        WithdrawModel actualWithdrawModel = new WithdrawModel(datetime, 10, 1, new CardModel());
+        WithdrawModel actualWithdrawModel = new WithdrawModel(datetime, 10, 1, new AccountModel());
         actualWithdrawModel.setAmount(10);
         actualWithdrawModel.setBalance(1);
-        CardModel cardModel = new CardModel();
-        actualWithdrawModel.setCard(cardModel);
+        AccountModel accountModel = new AccountModel();
+        actualWithdrawModel.setCard(accountModel);
         LocalDateTime ofResult = LocalDateTime.of(1, 1, 1, 1, 1);
         actualWithdrawModel.setDatetime(ofResult);
         assertEquals(10, actualWithdrawModel.getAmount().intValue());
         assertEquals(1, actualWithdrawModel.getBalance().intValue());
-        assertSame(cardModel, actualWithdrawModel.getCard());
+        assertSame(accountModel, actualWithdrawModel.getCard());
         assertSame(ofResult, actualWithdrawModel.getDatetime());
     }
 }

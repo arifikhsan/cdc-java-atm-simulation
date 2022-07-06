@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
-import org.example.model.CardModel;
+import org.example.model.AccountModel;
 import org.junit.jupiter.api.Test;
 
 class CardDataTest {
@@ -13,11 +13,11 @@ class CardDataTest {
      */
     @Test
     void testGetAllCards() {
-        List<CardModel> actualAllCards = CardData.getAllCards();
+        List<AccountModel> actualAllCards = CardData.getAllCards();
         assertEquals(2, actualAllCards.size());
-        CardModel getResult = actualAllCards.get(0);
+        AccountModel getResult = actualAllCards.get(0);
         assertEquals("111111", getResult.getPin());
-        CardModel getResult1 = actualAllCards.get(1);
+        AccountModel getResult1 = actualAllCards.get(1);
         assertEquals("222222", getResult1.getPin());
         assertEquals("222222", getResult1.getNumber());
         assertEquals("Jane Doe", getResult1.getName());

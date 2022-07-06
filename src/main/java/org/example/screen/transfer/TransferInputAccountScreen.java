@@ -39,7 +39,7 @@ public class TransferInputAccountScreen implements ScreenContract {
             }
 
             var destinationAccount = cardRepository.getCardByNumber(destinationAccountNumber);
-            transferModel.setFromCard(loggedInCard);
+            transferModel.setFromCard(loggedInAccount);
             transferModel.setToCard(destinationAccount);
             gotoTransferInputAmountScreen();
             return;
@@ -47,7 +47,7 @@ public class TransferInputAccountScreen implements ScreenContract {
     }
 
     private boolean isMyOwnAccount(String destinationAccountNumber) {
-        return loggedInCard.getNumber().equals(destinationAccountNumber);
+        return loggedInAccount.getNumber().equals(destinationAccountNumber);
     }
 
     private boolean isAccountExist(String destinationAccount) {

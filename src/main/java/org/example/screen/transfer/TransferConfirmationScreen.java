@@ -40,7 +40,7 @@ public class TransferConfirmationScreen implements ScreenContract {
 
     private void transferMoney() {
         transferRepository.getTransfers().add(transferModel);
-        loggedInCard.setBalance(loggedInCard.getBalance() - transferModel.getAmount());
+        loggedInAccount.setBalance(loggedInAccount.getBalance() - transferModel.getAmount());
         transferModel.getToCard().setBalance(transferModel.getToCard().getBalance() + transferModel.getAmount());
     }
 

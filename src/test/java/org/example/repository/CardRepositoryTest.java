@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.example.model.CardModel;
+import org.example.model.AccountModel;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -74,11 +74,11 @@ class CardRepositoryTest {
         //   getCardByNumber(String).
         //   See https://diff.blue/R013 to resolve this issue.
 
-        ArrayList<CardModel> cardModelList = new ArrayList<>();
-        cardModelList.add(new CardModel());
+        ArrayList<AccountModel> accountModelList = new ArrayList<>();
+        accountModelList.add(new AccountModel());
 
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(cardModelList);
+        cardRepository.setCards(accountModelList);
         cardRepository.getCardByNumber("foo");
     }
 
@@ -110,11 +110,11 @@ class CardRepositoryTest {
         //   getCardByNumber(String).
         //   See https://diff.blue/R013 to resolve this issue.
 
-        ArrayList<CardModel> cardModelList = new ArrayList<>();
-        cardModelList.add(null);
+        ArrayList<AccountModel> accountModelList = new ArrayList<>();
+        accountModelList.add(null);
 
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(cardModelList);
+        cardRepository.setCards(accountModelList);
         cardRepository.getCardByNumber("foo");
     }
 
@@ -166,11 +166,11 @@ class CardRepositoryTest {
         //   isExistByCardNumber(String).
         //   See https://diff.blue/R013 to resolve this issue.
 
-        ArrayList<CardModel> cardModelList = new ArrayList<>();
-        cardModelList.add(new CardModel());
+        ArrayList<AccountModel> accountModelList = new ArrayList<>();
+        accountModelList.add(new AccountModel());
 
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(cardModelList);
+        cardRepository.setCards(accountModelList);
         cardRepository.isExistByCardNumber("foo");
     }
 
@@ -203,11 +203,11 @@ class CardRepositoryTest {
         //   isExistByCardNumber(String).
         //   See https://diff.blue/R013 to resolve this issue.
 
-        ArrayList<CardModel> cardModelList = new ArrayList<>();
-        cardModelList.add(null);
+        ArrayList<AccountModel> accountModelList = new ArrayList<>();
+        accountModelList.add(null);
 
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(cardModelList);
+        cardRepository.setCards(accountModelList);
         cardRepository.isExistByCardNumber("foo");
     }
 
@@ -260,11 +260,11 @@ class CardRepositoryTest {
         //   isExistByCardNumberAndPin(String, String).
         //   See https://diff.blue/R013 to resolve this issue.
 
-        ArrayList<CardModel> cardModelList = new ArrayList<>();
-        cardModelList.add(new CardModel());
+        ArrayList<AccountModel> accountModelList = new ArrayList<>();
+        accountModelList.add(new AccountModel());
 
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(cardModelList);
+        cardRepository.setCards(accountModelList);
         cardRepository.isExistByCardNumberAndPin("foo", "foo");
     }
 
@@ -297,11 +297,11 @@ class CardRepositoryTest {
         //   isExistByCardNumberAndPin(String, String).
         //   See https://diff.blue/R013 to resolve this issue.
 
-        ArrayList<CardModel> cardModelList = new ArrayList<>();
-        cardModelList.add(null);
+        ArrayList<AccountModel> accountModelList = new ArrayList<>();
+        accountModelList.add(null);
 
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(cardModelList);
+        cardRepository.setCards(accountModelList);
         cardRepository.isExistByCardNumberAndPin("foo", "foo");
     }
 
@@ -334,14 +334,14 @@ class CardRepositoryTest {
         //   isExistByCardNumberAndPin(String, String).
         //   See https://diff.blue/R013 to resolve this issue.
 
-        CardModel cardModel = new CardModel();
-        cardModel.setNumber("42");
+        AccountModel accountModel = new AccountModel();
+        accountModel.setNumber("42");
 
-        ArrayList<CardModel> cardModelList = new ArrayList<>();
-        cardModelList.add(cardModel);
+        ArrayList<AccountModel> accountModelList = new ArrayList<>();
+        accountModelList.add(accountModel);
 
         CardRepository cardRepository = new CardRepository();
-        cardRepository.setCards(cardModelList);
+        cardRepository.setCards(accountModelList);
         cardRepository.isExistByCardNumberAndPin("42", "foo");
     }
 
@@ -357,9 +357,9 @@ class CardRepositoryTest {
     @Test
     void testConstructor() {
         CardRepository actualCardRepository = new CardRepository();
-        ArrayList<CardModel> cardModelList = new ArrayList<>();
-        actualCardRepository.setCards(cardModelList);
-        assertSame(cardModelList, actualCardRepository.getCards());
+        ArrayList<AccountModel> accountModelList = new ArrayList<>();
+        actualCardRepository.setCards(accountModelList);
+        assertSame(accountModelList, actualCardRepository.getCards());
     }
 }
 

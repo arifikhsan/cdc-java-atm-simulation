@@ -57,7 +57,7 @@ public class TransferSummaryScreen implements ScreenContract {
         println("Destination Account: " + transferModel.getToCard().getNumber());
         println("Amount: $" + transferModel.getAmount());
         println("Reference Number: " + transferModel.getReference());
-        println("Current Balance: $" + loggedInCard.getBalance());
+        println("Current Balance: $" + loggedInAccount.getBalance());
         println("Date: " + transferModel.getDateTime().format(dateTimeFormatter));
         printHorizontalLine();
     }

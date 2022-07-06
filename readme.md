@@ -4,7 +4,6 @@
 
 ## Features
 
-* Balance Inquiry
 * Withdraw
 * Transfer
 
