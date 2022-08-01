@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3500b055-24aa-43cd-87bc-a3aa763dd1e6" name="Changes" comment="remove magic number in function">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CoverUsage.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/components/MessageComponent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/AccountData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/AccountModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/TransferModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/WithdrawModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/CardRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/TransferRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/WithdrawRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/router/Router.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/screen/LoginScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/screen/TransactionScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/screen/WelcomeScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/screen/contract/ScreenContract.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/screen/transfer/TransferConfirmationScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/screen/transfer/TransferInputAccountScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/screen/transfer/TransferInputAmountScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/screen/transfer/TransferInputReferenceScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/screen/transfer/TransferSummaryScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/screen/withdraw/WithdrawCustomScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/screen/withdraw/WithdrawScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/screen/withdraw/WithdrawSummaryScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/util/NumberUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/util/StringUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/util/SystemUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/components/MessageComponentTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/data/AccountDataTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/AccountModelTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/TransferModelTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/WithdrawModelTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/repository/CardRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/repository/WithdrawRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/util/NumberUtilTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/util/StringUtilTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/.gitkeep" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cdc-java-atm-simulation" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cdc-java-atm-simulation" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="cdc-java-atm-simulation" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/stageone/src/main/java/org/example/Main.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="2A0wg1EK6Bq35wECsvZQIu5VX4i" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Arif_I141/code/java/cdc-java-atm-simulation/stageone",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "terminal"
+  }
+}]]></component>
+  <component name="RunManager" selected="Gradle.cdc-java-atm-simulation [clean]">
+    <configuration name="ErrorUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.util.ErrorUtil" />
+      <module name="cdc-java-atm-simulation.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="cdc-java-atm-simulation.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NumberUtilTest.testGenerateRandomSixDigitNumber" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.util.NumberUtilTest.testGenerateRandomSixDigitNumber&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'cdc-java-atm-simulation.test'" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="cdc-java-atm-simulation [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Write tests for class Router" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration">
+      <module name="cdc-java-atm-simulation.main" />
+      <settings run-config-name="Write tests for class Router" include-system-env-vars="true">
+        <jvm-args />
+        <selection-scope>class</selection-scope>
+        <selected-element key="org.example.router.Router" />
+      </settings>
+      <method v="2" />
+    </configuration>
+    <configuration name="Write tests for class WithdrawRepository" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="cdc-java-atm-simulation.main" />
+      <settings run-config-name="Write tests for class WithdrawRepository" include-system-env-vars="true">
+        <jvm-args />
+        <selection-scope>class</selection-scope>
+        <selected-element key="org.example.repository.WithdrawRepository" />
+      </settings>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.cdc-java-atm-simulation [clean]" />
+        <item itemvalue="Gradle.NumberUtilTest.testGenerateRandomSixDigitNumber" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ErrorUtil" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3500b055-24aa-43cd-87bc-a3aa763dd1e6" name="Changes" comment="" />
+      <created>1654159921576</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654159921576</updated>
+      <workItem from="1654159925690" duration="1441000" />
+      <workItem from="1654161422576" duration="142000" />
+      <workItem from="1654238426374" duration="8942000" />
+      <workItem from="1654432680758" duration="603000" />
+      <workItem from="1654492329067" duration="13890000" />
+      <workItem from="1654560148081" duration="400000" />
+      <workItem from="1654578593454" duration="13151000" />
+      <workItem from="1654598168539" duration="8205000" />
+      <workItem from="1654646516005" duration="184000" />
+      <workItem from="1654658749001" duration="1456000" />
+      <workItem from="1654666390636" duration="4548000" />
+      <workItem from="1654676179426" duration="1189000" />
+      <workItem from="1654677958200" duration="1144000" />
+      <workItem from="1654707657950" duration="598000" />
+      <workItem from="1654732884627" duration="204000" />
+      <workItem from="1654756779266" duration="3145000" />
+      <workItem from="1654762780196" duration="359000" />
+      <workItem from="1654822426338" duration="1917000" />
+      <workItem from="1654832243728" duration="2006000" />
+      <workItem from="1656655623011" duration="2287000" />
+      <workItem from="1656658839140" duration="1103000" />
+      <workItem from="1657086309840" duration="631000" />
+      <workItem from="1657089542345" duration="3966000" />
+      <workItem from="1657093650531" duration="1005000" />
+      <workItem from="1657097753249" duration="1522000" />
+      <workItem from="1657170736194" duration="1382000" />
+      <workItem from="1659331861722" duration="1380000" />
+      <workItem from="1659333308571" duration="155000" />
+    </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1654160073887</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1654160073887</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add readme.md">
+      <created>1654161493763</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1654161493764</updated>
+    </task>
+    <task id="LOCAL-00003" summary="configure gradle">
+      <created>1654246867683</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654246867683</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add card model">
+      <created>1654246880093</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654246880093</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add welcome screen">
+      <created>1654246919162</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1654246919162</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add transaction screen">
+      <created>1654246934464</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1654246934472</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add withdraw screen">
+      <created>1654246944185</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1654246944185</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add welcome and login screen">
+      <created>1654495187647</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1654495187647</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix infinite loop">
+      <created>1654500105707</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1654500105707</updated>
+    </task>
+    <task id="LOCAL-00010" summary="withdraw done">
+      <created>1654502852920</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1654502852920</updated>
+    </task>
+    <task id="LOCAL-00011" summary="cleanup">
+      <created>1654503129927</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1654503129927</updated>
+    </task>
+    <task id="LOCAL-00012" summary="convert functional style to object oriented style">
+      <created>1654506544425</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1654506544425</updated>
+    </task>
+    <task id="LOCAL-00013" summary="convert functional style to object oriented style">
+      <created>1654506588982</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1654506588982</updated>
+    </task>
+    <task id="LOCAL-00014" summary="summary screen">
+      <created>1654582604713</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1654582604713</updated>
+    </task>
+    <task id="LOCAL-00015" summary="withdraw custom amount">
+      <created>1654584124922</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1654584124922</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add transfer">
+      <created>1654592246701</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1654592246701</updated>
+    </task>
+    <task id="LOCAL-00017" summary="transaction done">
+      <created>1654601772471</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1654601772471</updated>
+    </task>
+    <task id="LOCAL-00018" summary="logged in user using global variable">
+      <created>1654603289436</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1654603289436</updated>
+    </task>
+    <task id="LOCAL-00019" summary="refactoring">
+      <created>1654611130910</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1654611130911</updated>
+    </task>
+    <task id="LOCAL-00020" summary="rename show to print">
+      <created>1654668131446</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1654668131446</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add router">
+      <created>1654669511429</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1654669511429</updated>
+    </task>
+    <task id="LOCAL-00022" summary="rename seeder to data">
+      <created>1654669657170</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1654669657170</updated>
+    </task>
+    <task id="LOCAL-00023" summary="more meaningful function name">
+      <created>1654669743033</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1654669743033</updated>
+    </task>
+    <task id="LOCAL-00024" summary="implement contract interface">
+      <created>1654676765312</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1654676765312</updated>
+    </task>
+    <task id="LOCAL-00025" summary="use invalid input message function">
+      <created>1654708181866</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1654708181866</updated>
+    </task>
+    <task id="LOCAL-00026" summary="rename show to print">
+      <created>1654708238367</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1654708238367</updated>
+    </task>
+    <task id="LOCAL-00027" summary="add unit test">
+      <created>1654833478529</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1654833478529</updated>
+    </task>
+    <task id="LOCAL-00028" summary="add println color">
+      <created>1654833497496</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1654833497496</updated>
+    </task>
+    <task id="LOCAL-00029" summary="remove some tests">
+      <created>1656657324235</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1656657324235</updated>
+    </task>
+    <task id="LOCAL-00030" summary="update readme">
+      <created>1656657443693</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1656657443693</updated>
+    </task>
+    <task id="LOCAL-00031" summary="rename card to account">
+      <created>1657090103653</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1657090103653</updated>
+    </task>
+    <task id="LOCAL-00032" summary="update using finite state machine">
+      <created>1657093235637</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1657093235637</updated>
+    </task>
+    <task id="LOCAL-00033" summary="remove current balance">
+      <created>1657093339415</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1657093339415</updated>
+    </task>
+    <task id="LOCAL-00034" summary="remove magic number in function">
+      <created>1657094610898</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1657094610898</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add welcome and login screen" />
+    <MESSAGE value="fix infinite loop" />
+    <MESSAGE value="withdraw done" />
+    <MESSAGE value="cleanup" />
+    <MESSAGE value="convert functional style to object oriented style" />
+    <MESSAGE value="summary screen" />
+    <MESSAGE value="withdraw custom amount" />
+    <MESSAGE value="add transfer" />
+    <MESSAGE value="transaction done" />
+    <MESSAGE value="logged in user using global variable" />
+    <MESSAGE value="refactoring" />
+    <MESSAGE value="add router" />
+    <MESSAGE value="rename seeder to data" />
+    <MESSAGE value="more meaningful function name" />
+    <MESSAGE value="implement contract interface" />
+    <MESSAGE value="use invalid input message function" />
+    <MESSAGE value="rename show to print" />
+    <MESSAGE value="add unit test" />
+    <MESSAGE value="add println color" />
+    <MESSAGE value="remove some tests" />
+    <MESSAGE value="update readme" />
+    <MESSAGE value="rename card to account" />
+    <MESSAGE value="update using finite state machine" />
+    <MESSAGE value="remove current balance" />
+    <MESSAGE value="remove magic number in function" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove magic number in function" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/cdc_java_atm_simulation$NumberUtilTest.ic" NAME="NumberUtilTest Coverage Results" MODIFIED="1654757217766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/cdc_java_atm_simulation$Tests_in__cdc_java_atm_simulation_test_.ic" NAME="Tests in 'cdc-java-atm-simulation.test' Coverage Results" MODIFIED="1656656164099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
