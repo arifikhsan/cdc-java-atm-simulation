@@ -1,4 +1,4 @@
-# CDC Java ATM Simulation
+# CDC Java ATM Simulation Stage 1
 
 > Immitate the behavior of a real ATM machine.
 
