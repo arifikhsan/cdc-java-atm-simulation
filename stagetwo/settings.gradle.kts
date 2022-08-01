@@ -1,2 +1,2 @@
-rootProject.name = "cdc-java-atm-simulation-second-stage"
+rootProject.name = "cdc-java-atm-simulation-stage-two"
 
