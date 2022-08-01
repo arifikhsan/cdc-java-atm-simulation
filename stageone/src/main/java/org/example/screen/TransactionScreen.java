@@ -54,9 +54,7 @@ public class TransactionScreen extends ScreenContract {
                     currentScreen = welcome;
                     return;
                 }
-                default -> {
-                    printInvalidOptionMessage(option);
-                }
+                default -> printInvalidOptionMessage(option);
             }
         }
     }
