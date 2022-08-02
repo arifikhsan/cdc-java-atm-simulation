@@ -15,7 +15,7 @@ import org.example.screen.withdraw.WithdrawSummaryScreen;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class Main {
+public class StageOneApplication {
     public static Scanner scanner = new Scanner(System.in);
     public static AccountModel loggedInAccount = null;
     public static WithdrawModel withdrawModel = new WithdrawModel();

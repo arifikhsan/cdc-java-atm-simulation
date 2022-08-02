@@ -2,7 +2,7 @@ package org.example.screen.transfer;
 
 import org.example.screen.contract.ScreenContract;
 
-import static org.example.Main.*;
+import static org.example.StageOneApplication.*;
 import static org.example.components.MessageComponent.printErrorMessage;
 import static org.example.components.MessageComponent.printTransferInputAccountMessage;
 import static org.example.util.StringUtil.isValidAccountNumber;

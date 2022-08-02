@@ -4,8 +4,8 @@ import org.example.screen.contract.ScreenContract;
 
 import java.time.LocalDateTime;
 
-import static org.example.Main.scanner;
-import static org.example.Main.transferModel;
+import static org.example.StageOneApplication.scanner;
+import static org.example.StageOneApplication.transferModel;
 import static org.example.components.MessageComponent.printErrorMessage;
 import static org.example.components.MessageComponent.printTransferInputReferenceMessage;
 import static org.example.util.NumberUtil.generateRandomSixDigitNumber;

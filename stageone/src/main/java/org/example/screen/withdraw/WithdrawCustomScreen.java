@@ -6,7 +6,7 @@ import org.example.screen.contract.ScreenContract;
 import java.time.LocalDateTime;
 
 import static java.lang.Integer.parseInt;
-import static org.example.Main.*;
+import static org.example.StageOneApplication.*;
 import static org.example.components.MessageComponent.*;
 import static org.example.util.NumberUtil.isGreaterThanNumber;
 import static org.example.util.NumberUtil.isMultiplyOfNumber;

@@ -3,8 +3,8 @@ package org.example.screen;
 import org.example.screen.contract.ScreenContract;
 
 import static java.lang.Integer.parseInt;
-import static org.example.Main.loggedInAccount;
-import static org.example.Main.scanner;
+import static org.example.StageOneApplication.loggedInAccount;
+import static org.example.StageOneApplication.scanner;
 import static org.example.components.MessageComponent.*;
 import static org.example.util.SystemUtil.*;
 
