@@ -1,1 +1,18 @@
+spring:
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cdc_java_atm_simulation_stage_three
+    username: postgres
+    password: postgres
 
+  main:
+    banner-mode: off
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+server:
+  port: 8090
