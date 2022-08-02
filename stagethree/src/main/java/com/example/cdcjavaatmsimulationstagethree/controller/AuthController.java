@@ -8,6 +8,6 @@ public class AuthController {
     @SuppressWarnings("SpringMVCViewInspection")
     @GetMapping
     public String showLoginPage() {
-        return "login";
+        return "auth/login";
     }
 }
