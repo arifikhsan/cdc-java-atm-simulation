@@ -14,5 +14,7 @@ spring:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
+  profiles:
+    active: development
 server:
   port: 8090
