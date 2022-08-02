@@ -18,7 +18,7 @@ import static org.example.repository.AccountRepository.getAccountById;
 import static org.example.util.TimeUtil.getCurrentTime;
 
 public class BalanceRepository {
-    private static final Path path = Paths.get("src/main/resources/transactions/balance-inquiries.csv");
+    private static final Path path = Paths.get("stagetwo/src/main/resources/transactions/balance-inquiries.csv");
 
     public static List<BalanceInquiryModel> getInquiries() {
         return getInquiriesStream().toList();

@@ -17,7 +17,7 @@ import static java.nio.file.StandardOpenOption.TRUNCATE_EXISTING;
 import static org.example.util.TimeUtil.getCurrentTime;
 
 public class TransferRepository {
-    private static final Path path = Paths.get("src/main/resources/transactions/transfers.csv");
+    private static final Path path = Paths.get("stagetwo/src/main/resources/transactions/transfers.csv");
 
     public static List<TransferModel> getTransfers() {
         return getTransfersStream().toList();

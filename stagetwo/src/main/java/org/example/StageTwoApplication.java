@@ -15,7 +15,7 @@ import org.example.screen.withdraw.WithdrawScreen;
 import org.example.screen.withdraw.WithdrawSummaryScreen;
 
 @SuppressWarnings("InfiniteLoopStatement")
-public class Main {
+public class StageTwoApplication {
     public static void main(String[] args) {
         configureCSVData();
         initializeScreen();

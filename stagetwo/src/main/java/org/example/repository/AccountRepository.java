@@ -7,19 +7,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 import java.util.stream.Stream;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 public class AccountRepository {
-    private static final Path path = Paths.get("src/main/resources/accounts.csv");
-    private static final Path initialPath = Paths.get("src/main/resources/initial-accounts.csv");
-
-    public static List<AccountModel> getAccounts() {
-        return getAccountsStream().toList();
-    }
+    private static final Path path = Paths.get("stagetwo/src/main/resources/accounts.csv");
+    private static final Path initialPath = Paths.get("stagetwo/src/main/resources/initial-accounts.csv");
 
     public static AccountModel getAccountByNumber(String accountNumber) {
         return getAccountsStream()
