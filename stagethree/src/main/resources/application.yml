@@ -1,15 +1,20 @@
+application:
+  name: CDC Java ATM Simulation Stage Three
+  version: 1.0.0
+
 spring:
   jpa:
     database: postgresql
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
+    show-sql: true
   datasource:
     url: jdbc:postgresql://localhost:5432/cdc_java_atm_simulation_stage_three
     username: postgres
     password: postgres
 
   main:
-    banner-mode: off
+    banner-mode: console
   mvc:
     view:
       prefix: /WEB-INF/jsp/
